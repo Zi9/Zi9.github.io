@@ -1,0 +1,33 @@
+from PIL import Image
+import os
+import math
+
+
+def resize_contain(image, size, bg_color=(255, 255, 255, 0)):
+    img_format = image.format
+    img = image.copy()
+    img.thumbnail((size[0], size[1]), Image.LANCZOS)
+    background = Image.new('RGBA', (size[0], size[1]), bg_color)
+    img_position = (
+        int(math.ceil((size[0] - img.size[0]) / 2)),
+        int(math.ceil((size[1] - img.size[1]) / 2))
+    )
+    background.paste(img, img_position)
+    background.format = img_format
+    return background
+
+
+for folder in os.listdir():
+    if folder != "generate_previews.py":
+        print("Processing folder " + folder)
+        os.chdir(folder)
+        os.mkdir("previews")
+        for file in os.listdir():
+            if os.path.isfile(file) and file != "CategoryImage.png":
+                im = Image.open(file)
+                im2 = im.crop(im.getbbox())
+                im3 = resize_contain(im2, [220, 110], bg_color=(0, 0, 0, 0))
+                im3.save("previews/" + file)
+                print(".", end="")
+        os.chdir("..")
+print("Done")
