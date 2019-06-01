@@ -1,11 +1,11 @@
 body {
     font-family: "Roboto Thin";
-    background-color: #4E4D4D;
+    background-color: #FAFAFA;
     max-width: 80%;
     min-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    color: white;
+    color: ##2D2D2D;
 }
 
 h1 {
@@ -19,7 +19,7 @@ h2 {
 }
 
 .modentry {
-    background-color: #2E2D2D;
+    background-color: #EAEAEA;
     padding: 20px;
     margin-bottom: 30px;
     display: flex;
@@ -32,53 +32,35 @@ h2 {
     float: left;
     margin-right: 20px;
     object-fit: contain;
-
 }
-
-.modentryTextLeft {
-    display: block;
-    text-align: justify;
-}
-
-.modentryTextLeft h3 {
-    font-size: 24px;
-    margin-top: 0;
-}
-
-.modentryTextLeft p {
-    font-family: "Roboto Light"
-}
-
-.modentryTextLeft a {
-    color: #fff;
-    font-family: "Roboto Light";
-}
-
 .modimgright {
     width: 55%;
     height: 55%;
     float: right;
     margin-left: 20px;
     object-fit: contain;
-
 }
 
-.modentryTextRight {
+.modentryText {
     display: block;
     text-align: justify;
-    flex-grow: 3;
 }
 
-.modentryTextRight h3 {
+.modentryText h3 {
     font-size: 24px;
     margin-top: 0;
+    margin-bottom: 0;
 }
 
-.modentryTextRight p {
+.modentryText p {
     font-family: "Roboto Light"
 }
 
-.modentryTextRight a {
-    color: #fff;
+.modentryText a {
+    color: #2D2D2D;
     font-family: "Roboto Light";
+}
+
+.modentryText hr {
+    border: 1px solid #c7c7c7
 }
