@@ -1,11 +1,20 @@
 body {
+    
+    background-color: #292929;
+    background-image: url(site-images/REDS15.png);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    
+}
+
+.content {
     font-family: "Roboto Thin";
-    background-color: #FAFAFA;
     max-width: 80%;
     min-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    color: ##2D2D2D;
+    color: #ffffff;
 }
 
 h1 {
@@ -19,11 +28,12 @@ h2 {
 }
 
 .modentry {
-    background-color: #EAEAEA;
+    background-color: rgba(47, 47, 47, 0.85);
     padding: 20px;
     margin-bottom: 30px;
     display: flex;
     flex-grow: 3;
+    box-shadow: 4px 4px 5px #191919
 }
 
 .modimgleft {
@@ -57,10 +67,10 @@ h2 {
 }
 
 .modentryText a {
-    color: #2D2D2D;
+    color: #ffffff;
     font-family: "Roboto Light";
 }
 
 .modentryText hr {
-    border: 1px solid #c7c7c7
+    border: 1px solid #646464
 }
