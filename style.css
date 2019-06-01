@@ -1,11 +1,11 @@
 body {
-    
+
     background-color: #292929;
     background-image: url(site-images/REDS15.png);
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    
+
 }
 
 .content {
@@ -43,6 +43,7 @@ h2 {
     margin-right: 20px;
     object-fit: contain;
 }
+
 .modimgright {
     width: 55%;
     height: 55%;
@@ -73,4 +74,19 @@ h2 {
 
 .modentryText hr {
     border: 1px solid #646464
+}
+
+
+footer .footerright {
+    color: rgba(255, 255, 255, 0.28);
+    text-align: right;
+    font-size: 12px;
+    float: right;
+    width: 30%
+}
+
+footer .footerleft {
+    float: left;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8)
 }
