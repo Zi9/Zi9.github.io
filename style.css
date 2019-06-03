@@ -9,7 +9,7 @@ body {
 }
 
 .content {
-    font-family: "Roboto Thin";
+    font-family: 'Roboto', sans-serif;
     max-width: 80%;
     min-width: 800px;
     margin-left: auto;
@@ -64,12 +64,12 @@ h2 {
 }
 
 .modentryText p {
-    font-family: "Roboto Light"
+    font-family: 'Roboto', sans-serif;
 }
 
 .modentryText a {
     color: #ffffff;
-    font-family: "Roboto Light";
+    font-family: 'Roboto', sans-serif;
 }
 
 .modentryText hr {
