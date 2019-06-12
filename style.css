@@ -1,7 +1,7 @@
 body {
 
     background-color: #292929;
-    background-image: url(site-images/REDS15.png);
+    background-image: url(site-images/KVERTHR32.png);
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -21,10 +21,12 @@ h1 {
     text-align: center;
     margin-bottom: 40px;
     margin-top: 20px;
+    text-shadow: 2px 2px 2px black;
 }
 
 h2 {
     text-align: center;
+    text-shadow: 2px 2px 2px black;
 }
 
 .modentry {
