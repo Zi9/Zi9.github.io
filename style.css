@@ -1,48 +1,89 @@
-.background {
-    width: 105%;
-    height: 105%;
-    position: fixed;
-    left: -10px;
-    top: -10px;
+body {
+
+    background-color: #292929;
     background-image: url(site-images/KVERTHR32.png);
     background-size: cover;
-    filter: blur(5px);
-    z-index: 1;
-    display: block;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
 }
 
-.text {
+.content {
     font-family: 'Roboto', sans-serif;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
     color: #ffffff;
-    z-index: 100;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 20px;
     text-shadow: 2px 2px 2px black;
 }
 
-.titlebig {
-    position: relative;
+h2 {
     text-align: center;
-    margin-bottom: 40px;
-    margin-top: 20px; 
+    text-shadow: 2px 2px 2px black;
 }
 
-.titlesub {
-    position: relative;
-    text-align: center;
+.modentry {
+    background-color: rgba(47, 47, 47, 0.85);
+    padding: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-grow: 3;
+    box-shadow: 4px 4px 5px #191919
 }
 
-footer {
-    position: relative;
-    height: 100px;
-    width: 65px;
+.modimgleft {
+    width: 55%;
+    height: 55%;
+    float: left;
+    margin-right: 20px;
+    object-fit: contain;
 }
+
+.modimgright {
+    width: 55%;
+    height: 55%;
+    float: right;
+    margin-left: 20px;
+    object-fit: contain;
+}
+
+.modentryText {
+    display: block;
+    text-align: justify;
+}
+
+.modentryText h3 {
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.modentryText p {
+    font-family: 'Roboto', sans-serif;
+}
+
+.modentryText a {
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+}
+
+.modentryText hr {
+    border: 1px solid #646464
+}
+
 
 footer .footerright {
     color: rgba(255, 255, 255, 0.28);
     text-align: right;
     font-size: 12px;
-    line-height: 20px;
     float: right;
-    width: 50%
+    width: 30%
 }
 
 footer .footerleft {
@@ -51,31 +92,8 @@ footer .footerleft {
     color: rgba(255, 255, 255, 0.8)
 }
 
-
-
-
-.content {
-    position: relative;
-    margin-left: auto;
-    max-width: 65%;
-    z-index: 1000;
-}
-
-
-
-
 .modShowcaseCard {
     width: 400px;
-    padding: 10px;
+    height: 300px;
     background-color: rgba(40, 40, 40, 0.85);
-}
-
-.modShowcaseCardImg {
-    width: 100%;
-}
-
-.modShowcaseCardTitle {
-    text-align: center;
-    font-size: 24px;
-    margin: 10px;
 }
