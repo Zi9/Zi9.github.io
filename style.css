@@ -33,14 +33,14 @@ h2 {
     padding: 20px;
     margin-bottom: 30px;
     display: flex;
-    flex-grow: 3;
+    flex-grow: 1;
+    flex-basis: auto;
     box-shadow: 4px 4px 5px #191919
 }
 
 .modimgleft {
     width: 55%;
     height: 55%;
-    float: left;
     margin-right: 20px;
     object-fit: contain;
 }
@@ -48,7 +48,6 @@ h2 {
 .modimgright {
     width: 55%;
     height: 55%;
-    float: right;
     margin-left: 20px;
     object-fit: contain;
 }
@@ -90,10 +89,4 @@ footer .footerleft {
     float: left;
     font-size: 14px;
     color: rgba(255, 255, 255, 0.8)
-}
-
-.modShowcaseCard {
-    width: 400px;
-    height: 300px;
-    background-color: rgba(40, 40, 40, 0.85);
 }

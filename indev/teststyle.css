@@ -1,0 +1,84 @@
+body {
+
+    background-color: #292929;
+    background-image: url(../site-images/KVERTHR32.png);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+}
+
+.content {
+    font-family: 'Roboto', sans-serif;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    color: #ffffff;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    text-shadow: 2px 2px 2px black;
+}
+
+h2 {
+    text-align: center;
+    text-shadow: 2px 2px 2px black;
+}
+
+footer .footerright {
+    color: rgba(255, 255, 255, 0.28);
+    text-align: right;
+    font-size: 12px;
+    float: right;
+    width: 30%
+}
+
+footer .footerleft {
+    float: left;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8)
+}
+
+.modcard {
+    flex: 1 100%;
+    background-color: rgba(30, 30, 30, 0.85);
+    padding: 10px;
+    box-shadow: 2px 2px 5px black;
+    transition: .2s ease;
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    margin: 20px;
+    max-width: 400px;
+}
+
+.modcard:hover {
+    background-color: rgba(220, 220, 220, 0.9);
+    color: black;
+}
+
+.modcardimg {
+    width: 100%;
+}
+
+.modcardtext {
+    text-align: center;
+    font-size: 15;
+}
+
+.modcardtitle {
+    font-size: 26px;
+    text-align: center;
+    margin: 5px;
+}
+
+.flexcontainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: stretch;
+}
