@@ -9,6 +9,11 @@
 
     <script>
         var nextimage = Math.floor((Math.random() * 10));
+        for (var i = 0; i < 10; ++i) {
+            var img = new Image();
+            img.src = "../site-images/backgrounds/bg" + i + ".jpg";
+            console.log("Preloaded image number " + i);
+        }
 
         function doSlideshow() {
             if (nextimage >= 10) {
