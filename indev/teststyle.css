@@ -28,6 +28,10 @@ h2 {
     text-shadow: 2px 2px 2px black;
 }
 
+footer {
+    margin-bottom: 60px;
+}
+
 footer .footerright {
     color: rgba(255, 255, 255, 0.28);
     text-align: right;
@@ -39,7 +43,11 @@ footer .footerright {
 footer .footerleft {
     float: left;
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.8)
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(30, 30, 30, 0.65);
+    padding-right: 10px;
+    padding-left: 10px;
+    box-shadow: 2px 2px 5px black;
 }
 
 .modcard {
