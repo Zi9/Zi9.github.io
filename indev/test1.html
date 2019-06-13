@@ -5,9 +5,27 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="teststyle.css">
     <link rel="icon" href="../site-images/icon.png">
+    <script src="../jquery-3.4.1.min.js"></script>
+
+    <script>
+        var nextimage = Math.floor((Math.random() * 10));
+
+        function doSlideshow() {
+            if (nextimage >= 10) {
+                nextimage = 0;
+            }
+            $('body')
+                .css('background-image', 'url("../site-images/backgrounds/bg' + nextimage + '.jpg")')
+                .fadeIn(100, function() {
+                    setTimeout(doSlideshow, 10000);
+                });
+            nextimage++;
+        }
+
+    </script>
 </head>
 
-<body>
+<body onload="doSlideshow()">
     <div class="content">
         <h1>Zi9's Software Creations</h1>
         <h2>CarX Drift Racing Online mods</h2>
@@ -16,25 +34,25 @@
                 <h3 class="modcardtitle">Cinematic Tools</h3>
                 <hr>
                 <p class="modcardtext">This is a plugin to ease the creation of cinematic content</p>
-                <img class="modcardimg" src="../site-images/CT.png">
+                <img class="modcardimg" src="../site-images/modimages/CT.png">
             </a>
             <a href="../index.html" class="modcard">
                 <h3 class="modcardtitle">Community Sticker Pack</h3>
                 <hr>
                 <p class="modcardtext">This pack adds many new stickers to your game</p>
-                <img class="modcardimg" src="../site-images/Stickerpack.png">
+                <img class="modcardimg" src="../site-images/modimages/Stickerpack.png">
             </a>
             <a href="../index.html" class="modcard">
                 <h3 class="modcardtitle">Assetto Corsa Soundbank Loader</h3>
                 <hr>
                 <p class="modcardtext">This plugin allows you to use sounds from Assetto Corsa</p>
-                <img class="modcardimg" src="../site-images/SoundMod.png">
+                <img class="modcardimg" src="../site-images/modimages/SoundMod.png">
             </a>
             <a href="../index.html" class="modcard">
                 <h3 class="modcardtitle">Custom Map Loader</h3>
                 <hr>
                 <p class="modcardtext">This plugin allows you to load custom maps from OBJ files</p>
-                <img class="modcardimg" src="../site-images/MapLoader.png">
+                <img class="modcardimg" src="../site-images/modimages/MapLoader.png">
             </a>
         </div>
         <hr>
@@ -43,7 +61,7 @@
                 <p>Contact me at Zi9#3641 on Discord</p>
             </div>
             <div class="footerright">
-                <p>Background image provided by KVERTH</p>
+                <p>Background images provided by KVERTH</p>
             </div>
         </footer>
     </div>
