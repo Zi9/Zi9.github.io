@@ -6,31 +6,9 @@
     <link rel="stylesheet" type="text/css" href="teststyle.css">
     <link rel="icon" href="../site-images/icon.png">
     <script src="../jquery-3.4.1.min.js"></script>
-
-    <script>
-        var nextimage = Math.floor((Math.random() * 10));
-        for (var i = 0; i < 10; ++i) {
-            var img = new Image();
-            img.src = "../site-images/backgrounds/bg" + i + ".jpg";
-            console.log("Preloaded image number " + i);
-        }
-
-        function doSlideshow() {
-            if (nextimage >= 10) {
-                nextimage = 0;
-            }
-            $('body')
-                .css('background-image', 'url("../site-images/backgrounds/bg' + nextimage + '.jpg")')
-                .fadeIn(100, function() {
-                    setTimeout(doSlideshow, 10000);
-                });
-            nextimage++;
-        }
-
-    </script>
 </head>
 
-<body onload="doSlideshow()">
+<body>
     <div class="content">
         <h1>Zi9's Software Creations</h1>
         <h2>CarX Drift Racing Online mods</h2>
@@ -71,5 +49,24 @@
         </footer>
     </div>
 </body>
+<script>
+    var nextimage = Math.floor((Math.random() * 10));
+    function doSlideshow() {
+        if (nextimage >= 10) {
+            nextimage = 0;
+        }
+        $('body')
+            .css('background-image', 'url("../site-images/backgrounds/bg' + nextimage + '.jpg")')
+            .fadeIn(100, function() {
+                setTimeout(doSlideshow, 10000);
+            });
+        nextimage++;
+    }
+    doSlideshow();
+    for (var i = 0; i < 10; ++i) {
+        var img = new Image();
+        img.src = "../site-images/backgrounds/bg" + i + ".jpg";
+    }
+</script>
 
 </html>
