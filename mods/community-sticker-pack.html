@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <title>Zi9's Software Creations</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="icon" href="../site-images/icon.png">
+    <script src="../jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <div class="content">
+        <h1>Zi9's Software Creations</h1>
+        <h2>CarX Drift Racing Online Mods</h2>
+        <a class="backlink" href="../index.html">← Back to CarX Mods</a>
+        <div class="modpageblock">
+            <div class="modpageflex">
+                <div class="modpagetextcontainer">
+                    <h2 class="modpagetitle">Community Sticker Pack</h2>
+                    <hr class="modpagesep">
+                        <p class="modpagetext">This pack contains more than 1300 new stickers to decorate your cars with.<br><br>It has a built in update detection mechanism that will notify you when the pack is updated. Stickers that are white color are colorable.<br><br>This pack works similiarly to car mods, you need to have the pack installed to see other people with custom stickers online.<br><br>To remove the pack be sure to use the provided uninstaller in the CarX folder and follow instructions.<br><br>Big thanks to Huskyy for a lot of help during development and all the people who submitted their stickers to be added.</p>
+                    <a class="modpagedl" href="../CarXStickerPack.html">Download Community Sticker Pack</a>
+                </div>
+                <div class="modpageimagecontainer">
+                    <img class="modpageimage" src="../site-images/modimages/Stickerpack.png">
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <footer>
+            <div class="footerleft">
+                <p>Contact me at Zi9#3641 on Discord</p>
+            </div>
+            <div class="footerright">
+                <p>Background images provided by KVERTH</p>
+            </div>
+        </footer>
+    </div>
+</body>
+<script>
+    var nextimage = Math.floor((Math.random() * 10));
+
+    function doSlideshow() {
+        if (nextimage >= 10) {
+            nextimage = 0;
+        }
+        $('body')
+            .css('background-image', 'url("../site-images/backgrounds/bg' + nextimage + '.jpg")')
+            .fadeIn(100, function() {
+                setTimeout(doSlideshow, 10000);
+            });
+        nextimage++;
+    }
+    doSlideshow();
+    for (var i = 0; i < 10; ++i) {
+        var img = new Image();
+        img.src = "../site-images/backgrounds/bg" + i + ".jpg";
+    }
+
+</script>
+
+</html>

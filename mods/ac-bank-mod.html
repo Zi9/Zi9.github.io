@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <title>Zi9's Software Creations</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="icon" href="../site-images/icon.png">
+    <script src="../jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <div class="content">
+        <h1>Zi9's Software Creations</h1>
+        <h2>CarX Drift Racing Online Mods</h2>
+        <a class="backlink" href="../index.html">← Back to CarX Mods</a>
+        <div class="modpageblock">
+            <div class="modpageflex">
+                <div class="modpagetextcontainer">
+                    <h2 class="modpagetitle">Assetto Corsa Soundbank Loader</h2>
+                    <hr class="modpagesep">
+                        <p class="modpagetext">This plugin allows you to use soundbanks from the game Assetto Corsa and replace the default ingame sounds with the ones from the soundbank. It uses the FMOD sound engine.<br><br>Sadly it has been broken due to CarX implementing FMOD themselves and that breaks my implementation. Additionally it was going to have a menu where you can select which soundbank to load and automatic loading of the bank you select on race start.<br><br>Currently development of this plugin has been put on hold but there is a chance i will revisit it sometime in the future.</p>
+                    <p class="modpagedl">Download link unavailable</p>
+                </div>
+                <div class="modpageimagecontainer">
+                    <img class="modpageimage" src="../site-images/modimages/SoundMod.png">
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <footer>
+            <div class="footerleft">
+                <p>Contact me at Zi9#3641 on Discord</p>
+            </div>
+            <div class="footerright">
+                <p>Background images provided by KVERTH</p>
+            </div>
+        </footer>
+    </div>
+</body>
+<script>
+    var nextimage = Math.floor((Math.random() * 10));
+
+    function doSlideshow() {
+        if (nextimage >= 10) {
+            nextimage = 0;
+        }
+        $('body')
+            .css('background-image', 'url("../site-images/backgrounds/bg' + nextimage + '.jpg")')
+            .fadeIn(100, function() {
+                setTimeout(doSlideshow, 10000);
+            });
+        nextimage++;
+    }
+    doSlideshow();
+    for (var i = 0; i < 10; ++i) {
+        var img = new Image();
+        img.src = "../site-images/backgrounds/bg" + i + ".jpg";
+    }
+
+</script>
+
+</html>

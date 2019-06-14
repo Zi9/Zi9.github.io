@@ -5,57 +5,68 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="icon" href="site-images/icon.png">
+    <script src="jquery-3.4.1.min.js"></script>
 </head>
 
 <body>
     <div class="content">
         <h1>Zi9's Software Creations</h1>
         <h2>CarX Drift Racing Online mods</h2>
-        <div class="modentry">
-            <img class="modimgleft" src="site-images/modimages/CT.png">
-            <div class="modentryText">
-                <h3>Cinematic Tools</h3>
+        <div class="modcardflexcontainer">
+            <a href="mods/cinematic-tools.html" class="modcard">
+                <h3 class="modcardtitle">Cinematic Tools</h3>
                 <hr>
-                <p><i>"Say no to shaky mouse cinematics"</i><br><br>Cinematic Tools is a plugin for CarX that allows the player to record smooth camera animations. This plugin will allow you to set start and end points for your camera and allow you to set the time it will animate the camera between those points. It also features animatable FOV and Tilt controls.<br>Installation is described in the included Readme.txt file in the zip.</p>
-                <a href="downloads/CinematicTools.zip">Download Cinematic Tools</a>
-            </div>
-        </div>
-        <div class="modentry">
-            <div class="modentryText">
-                <h3>Community Sticker Pack</h3>
+                <p class="modcardtext">This is a plugin to ease the creation of cinematic content</p>
+                <img class="modcardimg" src="site-images/modimages/CT.png">
+            </a>
+            <a href="mods/community-sticker-pack.html" class="modcard">
+                <h3 class="modcardtitle">Community Sticker Pack</h3>
                 <hr>
-                <p>This pack contains more than 1300 new stickers. It has a built in update detection mechanism that will notify you when the pack is updated. Stickers that are white color are colorable. This pack works similiarly to car mods, you need to have the pack installed to see other people with custom stickers online. To remove the pack be sure to use the provided uninstaller in the CarX folder and follow instructions.<br><br>Big thanks to Huskyy for a lot of help during development.</p>
-                <a href="CarXStickerPack.html">Download Community Sticker Pack</a>
-            </div>
-            <img class="modimgright" src="site-images/modimages/Stickerpack.png">
-        </div>
-        <div class="modentry">
-            <img class="modimgleft" src="site-images/modimages/SoundMod.png">
-            <div class="modentryText">
-                <h3>Assetto Corsa Soundbank Loader Plugin</h3>
+                <p class="modcardtext">This pack adds many new stickers to your game</p>
+                <img class="modcardimg" src="site-images/modimages/Stickerpack.png">
+            </a>
+            <a href="mods/ac-bank-mod.html" class="modcard">
+                <h3 class="modcardtitle">Assetto Corsa Soundbank Loader</h3>
                 <hr>
-                <p>This plugin allows you to use soundbanks from the game Assetto Corsa and replace the default ingame sounds with the ones from the soundbank. It uses the FMOD sound engine.<br><br>Sadly it has been broken due to CarX implementing FMOD themselves and that breaks my implementation. Additionally it was going to have a menu where you can select which soundbank to load and automatic loading of the bank you select on race start. Currently development of this plugin has been put on hold but there is a chance i will revisit it sometime in the future.</p>
-                <p>Download link unavailable</p>
-            </div>
-        </div>
-        <div class="modentry">
-            <div class="modentryText">
-                <h3>Custom Map Loader Plugin</h3>
+                <p class="modcardtext">This plugin allows you to use sounds from Assetto Corsa</p>
+                <img class="modcardimg" src="site-images/modimages/SoundMod.png">
+            </a>
+            <a href="mods/custom-map-loader.html" class="modcard">
+                <h3 class="modcardtitle">Custom Map Loader</h3>
                 <hr>
-                <p>This plugin allows you to load a custom map from an OBJ format 3D model and use it as a track in the game. To make collisions work correctly you need to have a single mesh OBJ for collisions. This plugin also doesn't touch the original track's collision model so you can just go back to the original track without even leaving the lobby. Development has been put on hold. Planned features were going to inclue a menu where you select which map to load and the ability to disable and enable maps ingame. <br><br>Big thanks to Huskyy and Mr.CoolGoat for help during development</p>
-                <p>Download link unavailable</p>
-            </div>
-            <img class="modimgright" src="site-images/modimages/MapLoader.png">
+                <p class="modcardtext">This plugin allows you to load custom maps from OBJ files</p>
+                <img class="modcardimg" src="site-images/modimages/MapLoader.png">
+            </a>
         </div>
+        <hr>
         <footer>
             <div class="footerleft">
                 <p>Contact me at Zi9#3641 on Discord</p>
             </div>
             <div class="footerright">
-                <p>Background image provided by KVERTH</p>
+                <p>Background images provided by KVERTH</p>
             </div>
         </footer>
     </div>
 </body>
+<script>
+    var nextimage = Math.floor((Math.random() * 10));
+    function doSlideshow() {
+        if (nextimage >= 10) {
+            nextimage = 0;
+        }
+        $('body')
+            .css('background-image', 'url("../site-images/backgrounds/bg' + nextimage + '.jpg")')
+            .fadeIn(100, function() {
+                setTimeout(doSlideshow, 10000);
+            });
+        nextimage++;
+    }
+    doSlideshow();
+    for (var i = 0; i < 10; ++i) {
+        var img = new Image();
+        img.src = "../site-images/backgrounds/bg" + i + ".jpg";
+    }
+</script>
 
 </html>
