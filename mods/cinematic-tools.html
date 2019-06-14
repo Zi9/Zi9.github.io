@@ -1,11 +1,12 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="utf-8">
     <title>Zi9's Software Creations</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../style.css">
     <link rel="icon" href="../site-images/icon.png">
-    <script src="../jquery-3.4.1.min.js"></script>
 </head>
 
 <body>
@@ -18,7 +19,7 @@
                 <div class="modpagetextcontainer">
                     <h2 class="modpagetitle">Cinematic Tools</h2>
                     <hr class="modpagesep">
-                        <p class="modpagetext"><i>"Say no to shaky mouse cinematics"</i><br><br>Cinematic Tools is a plugin for CarX that allows the player to record smooth camera animations.<br><br>This plugin will allow you to set start and end points for your camera and allow you to set the time it will animate the camera between those points.<br><br>It also features animatable FOV and Tilt controls.<br><br>Installation is described in the included Readme.txt file in the zip.<br><br>This is v1 of Cinematic Tools, the upcoming version will have a much more in-depth clip system, replay recording and editing and possibly even video exporting at a specified resolution and framerate. This will allow people who are not able to record the game at high FPS to make smooth cinematics as well. </p>
+                    <p class="modpagetext"><i>"Say no to shaky mouse cinematics"</i><br><br>Cinematic Tools is a plugin for CarX that allows the player to record smooth camera animations.<br><br>This plugin will allow you to set start and end points for your camera and allow you to set the time it will animate the camera between those points.<br><br>It also features animatable FOV and Tilt controls.<br><br>Installation is described in the included Readme.txt file in the zip.<br><br>This is v1 of Cinematic Tools, the upcoming version will have a much more in-depth clip system, replay recording and editing and possibly even video exporting at a specified resolution and framerate. This will allow people who are not able to record the game at high FPS to make smooth cinematics as well. </p>
                     <a class="modpagedl" href="../downloads/CinematicTools.zip">Download Cinematic Tools</a>
                 </div>
                 <div class="modpageimagecontainer">
@@ -50,27 +51,29 @@
             </div>
         </footer>
     </div>
-</body>
-<script>
-    var nextimage = Math.floor((Math.random() * 10));
 
-    function doSlideshow() {
-        if (nextimage >= 10) {
-            nextimage = 0;
+    <script src="../jquery-3.4.1.min.js"></script>
+    <script>
+        var nextimage = Math.floor((Math.random() * 10));
+
+        function doSlideshow() {
+            if (nextimage >= 10) {
+                nextimage = 0;
+            }
+            $('body')
+                .css('background-image', 'url("../site-images/backgrounds/bg' + nextimage + '.jpg")')
+                .fadeIn(100, function() {
+                    setTimeout(doSlideshow, 10000);
+                });
+            nextimage++;
         }
-        $('body')
-            .css('background-image', 'url("../site-images/backgrounds/bg' + nextimage + '.jpg")')
-            .fadeIn(100, function() {
-                setTimeout(doSlideshow, 10000);
-            });
-        nextimage++;
-    }
-    doSlideshow();
-    for (var i = 0; i < 10; ++i) {
-        var img = new Image();
-        img.src = "../site-images/backgrounds/bg" + i + ".jpg";
-    }
+        doSlideshow();
+        for (var i = 0; i < 10; ++i) {
+            var img = new Image();
+            img.src = "../site-images/backgrounds/bg" + i + ".jpg";
+        }
 
-</script>
+    </script>
+</body>
 
 </html>
