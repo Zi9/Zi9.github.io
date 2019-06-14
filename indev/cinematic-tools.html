@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <title>Zi9's Software Creations</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="teststyle.css">
+    <link rel="icon" href="../site-images/icon.png">
+    <script src="../jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <div class="content">
+        <h1>Zi9's Software Creations</h1>
+        <h2>CarX Drift Racing Online mods</h2>
+        <a class="backlink" href="test1.html">← Back to CarX Mods</a>
+        <div class="modpageblock">
+            <div class="modpageflex">
+                <div class="modpagetextcontainer">
+                    <h2 class="modpagetitle">Cinematic Tools</h2>
+                    <hr class="modpagesep">
+                    <div class="modpageflex">
+                        <p class="modpagetext"><i>"Say no to shaky mouse cinematics"</i><br><br>Cinematic Tools is a plugin for CarX that allows the player to record smooth camera animations. This plugin will allow you to set start and end points for your camera and allow you to set the time it will animate the camera between those points.<br>It also features animatable FOV and Tilt controls.<br>Installation is described in the included Readme.txt file in the zip.</p>
+                    </div>
+                </div>
+                <div class="modpageimagecontainer">
+                    <img class="modpageimage" src="../site-images/modimages/CT.png">
+                    <video class="modpageimage" autoplay muted loop>
+                        <source src="../site-media/snox_ct_loopy.webm" type="video/webm">
+                        Your browser does not support embedded video :/
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <footer>
+            <div class="footerleft">
+                <p>Contact me at Zi9#3641 on Discord</p>
+            </div>
+            <div class="footerright">
+                <p>Background images provided by KVERTH</p>
+            </div>
+        </footer>
+    </div>
+</body>
+<script>
+    var nextimage = Math.floor((Math.random() * 10));
+
+    function doSlideshow() {
+        if (nextimage >= 10) {
+            nextimage = 0;
+        }
+        $('body')
+            .css('background-image', 'url("../site-images/backgrounds/bg' + nextimage + '.jpg")')
+            .fadeIn(100, function() {
+                setTimeout(doSlideshow, 10000);
+            });
+        nextimage++;
+    }
+    doSlideshow();
+    for (var i = 0; i < 10; ++i) {
+        var img = new Image();
+        img.src = "../site-images/backgrounds/bg" + i + ".jpg";
+    }
+
+</script>
+
+</html>
