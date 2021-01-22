@@ -1,0 +1,76 @@
+= Zi9's MapLoader map creation documentation
+Zi9
+v1.0 2021-01-23
+:toc:
+
+Zi9's Map Loader is a plugin for CarX Drift Racing Online, that enables community made maps to be loaded ingame like regular CarX maps. These maps are built within the Unity game engine and exported as AssetBundles.
+
+== Requirements
+
+For building maps you will need:
+
+* Unity 2019.4.14f1
+* Map Builder Utility (Zimap SDK)
+
+== Making a map mod
+
+First step is to create a new folder to keep all the needed files in. In this document we will use the name ``ModMap``.
+
+=== Setting up the metadata
+
+Create a new text file called ``meta.txt`` in this folder with the following content.
+
+.meta.txt file content
+----
+This is where you change settings for the map
+Do not change the structure of the file, Name must be the 4th line and so on
+
+Name: Your Modded Map Name
+----
+
+Change the name to the map you will be making.
+
+CAUTION: The name must only contain ASCII characters (A-Z a-Z 0-9)
+
+=== Generating an ID for your map
+
+You can generate an ID using the MapBuilder.exe by just double-clicking on it, it will generate an id and save it in ``id.txt`` next to the executable. Move this into your map data folder.
+
+=== Building the asset bundle
+
+TODO: write this
+
+IMPORTANT: Your final map scene must have the id as its name
+
+=== Adding the textures for UI
+
+The map loader needs 4 textures for every custom map.
+
+icon.png:: This is what is shown in the singleplayer track selection screen
+loadscreen.png:: The loading screen background image
+lobby.png:: The image that is shown when making a new multiplayer lobby
+minimap.png:: Minimap image shown in the singleplayer track selection screen
+
+Add these textures into your mod map folder.
+
+NOTE: Keep texture sizes reasonable (a 1920x1080 icon doesn't make sense)
+
+=== Ready to build
+
+.The final folder structure for building a zimap file
+----
+your-map-folder
+├── icon.png
+├── id.txt
+├── loadscreen.png
+├── lobby.png
+├── map.assetbundle
+├── meta.txt
+└── minimap.png
+----
+
+Make sure you are not missing any files or else the build process will not work.
+
+=== Building the map using Zimap SDK
+
+To build the map you just have to drag the whole map data folder onto the MapBuilder.exe icon and that will start the build process. If the process is succesful you should have a ``.zimap`` file in your map data folder.
