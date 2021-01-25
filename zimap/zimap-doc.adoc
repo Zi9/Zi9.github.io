@@ -1,6 +1,6 @@
-= Zi9's MapLoader map creation documentation
-Zi9
-v1.0 2021-01-23
+= Zi9's MapLoader map creation technical documentation
+Zi9#3641
+v1.1
 :toc:
 
 Zi9's Map Loader is a plugin for CarX Drift Racing Online, that enables community made maps to be loaded ingame like regular CarX maps. These maps are built within the Unity game engine and exported as AssetBundles.
@@ -10,7 +10,7 @@ Zi9's Map Loader is a plugin for CarX Drift Racing Online, that enables communit
 For building maps you will need:
 
 * Unity 2019.4.14f1
-* Map Builder Utility (Zimap SDK)
+* Map Builder Utility (Zimap SDK) - Requires .NET Framework 4.7
 
 == Making a map mod
 
@@ -30,7 +30,7 @@ Name: Your Modded Map Name
 
 Change the name to the map you will be making.
 
-CAUTION: The name must only contain ASCII characters (A-Z a-Z 0-9)
+CAUTION: The name must only contain ASCII characters (A-Z a-z 0-9)
 
 === Generating an ID for your map
 
@@ -38,9 +38,48 @@ You can generate an ID using the MapBuilder.exe by just double-clicking on it, i
 
 === Building the asset bundle
 
-TODO: write this
+You will need to set your Unity project up for HDRP assets and your project should only contain 1 scene.
+
+NOTE: Scripts are not supported for mod map scenes
+
+The scene must only contain 1 root object called ``ModMapRoot``, all level GameObjects must be contained within the ``ModMapRoot`` GameObject. 
 
 IMPORTANT: Your final map scene must have the id as its name
+
+The map loader will look for GameObjects with the names that are listed below, all children of these objects will have drivable surfaces with phsyical properties added to it.
+
+The following names are supported for physics material setup:
+
+* road
+* kerb
+* sand
+* snow
+* grass
+* gravel
+* icyroad
+* dirt
+
+The loader will also look for a GameObject called ``spawnpoint``. This is where the player will spawn on game load, without a spawnpoint the player will spawn at (0, 0, 0).
+
+.Example scene structure
+----
+1747620 (Scene)
+└── ModMapRoot
+   ├── houseModel
+   ├── randomLevelGeometry
+   ├── randomLevelGeometry2
+   ├── randomLevelGeometry3
+   ├── road
+   │  ├── road_part1
+   │  ├── road_part2
+   │  └── road_part3
+   ├── grass
+   │  ├── grass1
+   │  └── grass2
+   └── spawnpoint
+----
+
+After exporting the asset bundle, you only need the file that has no file extension. Rename that to map.assetbundle and place it in your map data folder.
 
 === Adding the textures for UI
 
@@ -69,7 +108,7 @@ your-map-folder
 └── minimap.png
 ----
 
-Make sure you are not missing any files or else the build process will not work.
+Make sure you are not missing any files or else the build process will fail.
 
 === Building the map using Zimap SDK
 

@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.12">
-<meta name="author" content="Zi9">
-<title>Zi9&#8217;s MapLoader map creation documentation</title>
+<meta name="author" content="Zi9#3641">
+<title>Zi9&#8217;s MapLoader map creation technical documentation</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -441,10 +441,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>Zi9&#8217;s MapLoader map creation documentation</h1>
+<h1>Zi9&#8217;s MapLoader map creation technical documentation</h1>
 <div class="details">
-<span id="author" class="author">Zi9</span><br>
-<span id="revnumber">version 1.0 2021-01-23</span>
+<span id="author" class="author">Zi9#3641</span><br>
+<span id="revnumber">version 1.1</span>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
@@ -483,7 +483,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Unity 2019.4.14f1</p>
 </li>
 <li>
-<p>Map Builder Utility (Zimap SDK)</p>
+<p>Map Builder Utility (Zimap SDK) - Requires .NET Framework 4.7</p>
 </li>
 </ul>
 </div>
@@ -519,7 +519,7 @@ Name: Your Modded Map Name</pre>
 <div class="title">Caution</div>
 </td>
 <td class="content">
-The name must only contain ASCII characters (A-Z a-Z 0-9)
+The name must only contain ASCII characters (A-Z a-z 0-9)
 </td>
 </tr>
 </table>
@@ -534,7 +534,22 @@ The name must only contain ASCII characters (A-Z a-Z 0-9)
 <div class="sect2">
 <h3 id="_building_the_asset_bundle">Building the asset bundle</h3>
 <div class="paragraph">
-<p>TODO: write this</p>
+<p>You will need to set your Unity project up for HDRP assets and your project should only contain 1 scene.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Scripts are not supported for mod map scenes
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The scene must only contain 1 root object called <code>ModMapRoot</code>, all level GameObjects must be contained within the <code>ModMapRoot</code> GameObject.</p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -547,6 +562,65 @@ Your final map scene must have the id as its name
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>The map loader will look for GameObjects with the names that are listed below, all children of these objects will have drivable surfaces with phsyical properties added to it.</p>
+</div>
+<div class="paragraph">
+<p>The following names are supported for physics material setup:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>road</p>
+</li>
+<li>
+<p>kerb</p>
+</li>
+<li>
+<p>sand</p>
+</li>
+<li>
+<p>snow</p>
+</li>
+<li>
+<p>grass</p>
+</li>
+<li>
+<p>gravel</p>
+</li>
+<li>
+<p>icyroad</p>
+</li>
+<li>
+<p>dirt</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The loader will also look for a GameObject called <code>spawnpoint</code>. This is where the player will spawn on game load, without a spawnpoint the player will spawn at (0, 0, 0).</p>
+</div>
+<div class="listingblock">
+<div class="title">Example scene structure</div>
+<div class="content">
+<pre>1747620 (Scene)
+└── ModMapRoot
+   ├── houseModel
+   ├── randomLevelGeometry
+   ├── randomLevelGeometry2
+   ├── randomLevelGeometry3
+   ├── road
+   │  ├── road_part1
+   │  ├── road_part2
+   │  └── road_part3
+   ├── grass
+   │  ├── grass1
+   │  └── grass2
+   └── spawnpoint</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After exporting the asset bundle, you only need the file that has no file extension. Rename that to map.assetbundle and place it in your map data folder.</p>
 </div>
 </div>
 <div class="sect2">
@@ -606,7 +680,7 @@ Keep texture sizes reasonable (a 1920x1080 icon doesn&#8217;t make sense)
 </div>
 </div>
 <div class="paragraph">
-<p>Make sure you are not missing any files or else the build process will not work.</p>
+<p>Make sure you are not missing any files or else the build process will fail.</p>
 </div>
 </div>
 <div class="sect2">
@@ -620,8 +694,8 @@ Keep texture sizes reasonable (a 1920x1080 icon doesn&#8217;t make sense)
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 1.0 2021-01-23<br>
-Last updated 2021-01-23 00:05:35 +0200
+Version 1.1<br>
+Last updated 2021-01-25 16:50:54 +0200
 </div>
 </div>
 </body>
