@@ -79,7 +79,7 @@ The loader will also look for a GameObject called ``spawnpoint``. This is where 
    └── spawnpoint
 ----
 
-After exporting the asset bundle, you only need the file that has no file extension. Rename that to map.assetbundle and place it in your map data folder.
+After exporting the asset bundle, you only need the file that has no file extension. Rename that to ``map`` and place it in your map data folder.
 
 === Adding the textures for UI
 
@@ -103,7 +103,7 @@ your-map-folder
 ├── id.txt
 ├── loadscreen.png
 ├── lobby.png
-├── map.assetbundle
+├── map
 ├── meta.txt
 └── minimap.png
 ----
