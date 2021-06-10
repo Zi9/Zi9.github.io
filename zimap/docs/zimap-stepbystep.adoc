@@ -13,7 +13,7 @@ Zi9's Map Loader is a plugin for CarX Drift Racing Online, that enables communit
 
 For building maps you will need:
 
-* Unity 2019.4.14f1
+* Unity 2020.3.2f1
 * Map Builder Utility (Zimap SDK) - Requires .NET Framework 4.7
 
 == Making a map mod
@@ -37,17 +37,19 @@ image:images/image34.png[image]
 image:images/image45.png[image]
 image:images/image65.png[image]
 
-==== Installing Unity v2019.4.14f1
+==== Installing Unity v2020.3.2f1
+
+NOTE: Images show an older version, you need 2020.3.2f1
 
 Visit the Unity version archive: https://unity3d.com/get-unity/download/archive
 
 Select “Unity Hub” download icon.
 
-This will download 2019.4.14f1
+This will download 2020.3.2f1
 
 image:images/image67.png[image]
 
-Install Unity v2019.4.14f1
+Install Unity v2020.3.2f1
 
 image:images/image33.png[image]
 image:images/image5.png[image]
