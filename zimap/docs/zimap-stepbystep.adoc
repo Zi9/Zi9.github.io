@@ -277,6 +277,16 @@ image:images/image1.png[image]
 
 === Building the asset bundle
 
+Visit https://github.com/Unity-Technologies/AssetBundles-Browser/releases/
+
+Select the Source code (tar.gz) Download
+
+image:images/image60.png[image]
+
+Move AssetBundles-Browser-1.7.0.tar.gz into your Unity Assets Folder
+
+image:images/image14.png[image]
+
 Select Window tab in Unity 
 
 Select Package Manager
