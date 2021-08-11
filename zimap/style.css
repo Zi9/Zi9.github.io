@@ -1,0 +1,175 @@
+body {
+    background-color: #181818;
+    color: #BBB;
+    font-family: Roboto;
+    line-height: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+b {
+    font-weight: 500;
+}
+
+h1,
+h2 {
+    font-weight: 300;
+}
+
+h3 {
+    font-weight: 200;
+}
+
+a {
+    color: #BBB;
+}
+
+a:visited {
+    color: #BBB;
+}
+
+hr {
+    border-color: #fff3;
+}
+
+ul {
+    list-style-type: symbols("a");
+}
+
+p {
+    line-height: 1.2;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+}
+
+.pagetitle {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.updatetime {
+    font-weight: 200;
+    font-size: 10pt;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.centertitle {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.centertext {
+    text-align: center;
+}
+
+.underconstruction {
+    background-color: #DDCC00;
+    color: black;
+    padding: 0.5rem;
+    margin: 0;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.card {
+    background-color: #222;
+    padding: 15px;
+    box-shadow: #111 2px 2px 4px;
+    margin: 10px;
+    flex: 1;
+}
+
+.card-main-link {
+    text-align: center;
+}
+
+.card-red {
+    background-color: #282020;
+}
+
+.card-green {
+    background-color: #202820;
+}
+
+.card-blue {
+    background-color: #202028;
+}
+
+
+/* MAIN PAGE STUFF */
+
+.main-container {
+    display: flex;
+    width: 85%;
+    min-height: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: stretch;
+    align-content: stretch;
+    font-weight: 200;
+    line-height: 1.2;
+}
+
+
+/* MAP LIST STUFF */
+
+.maps {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.map-card {
+    padding-left: 20px;
+    display: flex;
+}
+
+.map-textblock {
+    flex-grow: 10;
+    margin-right: 1rem;
+    font-weight: 200;
+}
+
+.map-cover {
+    max-height: 12rem;
+    box-shadow: #111 2px 2px 4px;
+}
+
+.map-titlebox {
+    display: flex;
+}
+
+.map-title {
+    flex-grow: 10;
+}
+
+.map-download {
+    display: flex;
+    text-align: center;
+    margin: auto;
+}
+
+.map-download-content {
+    background-color: #305030;
+    text-decoration: none;
+    padding: 8px;
+    box-shadow: #151515 2px 2px 4px;
+}
+
+.map-download-icon {
+    font-size: 1.5rem;
+    margin: 0;
+    margin-bottom: 0.4rem;
+}
+
+.map-download-text {
+    font-weight: 500;
+    font-size: 0.85rem;
+    margin: 0;
+}
