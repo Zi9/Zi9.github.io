@@ -1,6 +1,0 @@
-Name: Placeholder Map 1
-Author: Placeholder Author Name
-Size: 10MB
-Download: http://example.org
-ID: 1234567
-Description: This is an example description
