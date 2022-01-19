@@ -1,0 +1,14 @@
+{% for title,url in MENUITEMS %}
+<div class="nav-item">
+  {% if url is string %}
+  <a class="nav-button" href="{{ url }}">{{ title }}</a>
+  {% elif url is iterable %}
+  <p class="nav-button">{{ title }}</p>
+  <div class="nav-submenu">
+    {% for itemtitle,itemurl in url %}
+    <a class="nav-button" href="{{ itemurl }}">{{ itemtitle }}</a>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+{% endfor %}
