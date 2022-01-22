@@ -6,18 +6,20 @@ html {
 body {
     background-color: #222;
     display: flex;
+    flex-direction: column;
 }
 
 main {
     background-color: #333;
     box-shadow: 10px 10px 5px black;
     width: 35rem;
-    height: 41rem;
     margin-left: auto;
     margin-right: auto;
     margin-top: 2rem;
+    margin-bottom: 2rem;
     padding-left: 2rem;
     padding-right: 2rem;
+    padding-bottom: 1.5rem;
 }
 
 h1 {
@@ -32,12 +34,15 @@ h3 {
 
 p {
     font-weight: 200;
-    line-height: 0.5;
+    margin: 0;
+    padding: 0;
 }
 
 ul {
     list-style-type: none;
     padding-left: 1rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
 }
 
 li {
@@ -63,4 +68,8 @@ hr {
 
 .graytext {
     color: gray;
+}
+
+.bolder {
+    font-weight: 400;
 }
