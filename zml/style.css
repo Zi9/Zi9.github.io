@@ -54,6 +54,14 @@ hr {
     border-color: gray;
 }
 
+a {
+    color: white;
+}
+
+a:hover {
+    color: white;
+}
+
 .prefix-emoji {
     display: inline-block;
     width: 1.5rem;
