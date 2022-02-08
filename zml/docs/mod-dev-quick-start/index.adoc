@@ -101,7 +101,7 @@ namespace MyCoolMod
 }
 ----
 
-To see all of the API that ZML provides head over to link:/docs/api-docs[ZML API Documentation]
+To see all of the API that ZML provides head over to link:/zml/docs/api-docs[ZML API Documentation]
 
 == Publishing your mod
 Once your mod is completed and ready to be enabled globally, you'll need to run it through the *ModBuildTool*. This tool will encrypt your mod and protect it from any sort of manipulation. To use it you will need to request a developer key file and the tool itself. Before your mod is globally enabled it will go through a verification process by the ZML Team to assure the safety of it.
