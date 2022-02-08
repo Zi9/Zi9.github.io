@@ -1,0 +1,171 @@
+= ZML API Documentation
+By Zi9#3641
+:source-highlighter: highlight.js
+:icons: font 
+:toc: preamble
+
+NOTE: All of ZML's API is contained within the static `ZMLAPI` class.
+
+== Config API
+
+This API allows you to save and load internal settings for your mod.
+
+The following data types are supported by the Config API:
+
+* `int`
+* `float`
+* `string`
+* `bool`
+* `UnityEngine.Rect`
+* `UnityEngine.Color`
+
+[source,csharp]
+----
+void Set<T>(BaseMod mod, string setting, T value);
+bool Get<T>(BaseMod mod, string setting, out T value);
+----
+
+Parameters:
+
+* `mod` - A reference to your mod class (`this` if you're saving/loading inside your main class)
+* `setting` - The name of your setting. Usually all in lowercase with dots instead of spaces (`very.cool.setting`).
+* `value` - The value you want to save/load
+
+`Get` returns a `bool` describing if the setting was found.
+
+ZML's BaseMod class provides an overridable `OnDeinitialize` function to save settings last minute as the game is closing.
+
+Example of usage:
+
+[source,csharp]
+----
+using ZML.API;
+
+namespace MyMod
+{
+    [ZMLMod("zml.zi9.testmod", "Zi9's Cool Mod for Testing", "1.0.0", "Zi9")]
+    public class MyMod : BaseMod
+    {
+        public int ImportantNumber;
+
+        public MyMod()
+        {
+            // Loading a setting in the mod constructor
+            if (!ZMLAPI.Config.Get(this, "important.number", out ImportantNumber)) ImportantNumber = 42;
+            // This is the usual way to load settings with defaults, if a setting isn't found it will be set to what you have after the if statement
+        }
+
+        public override void OnDeinitialize()
+        {
+            // Saving a setting on game exit
+            ZMLAPI.Config.Set(this, "important.number", ImportantNumber);
+        }
+    }
+}
+----
+
+These functions are not limited to being used in specific functions. You can save/load settings anywhere in your code.
+
+
+== Keybind API
+
+This API provides a way to register re-bindable keys easily. The registered keys show up in ZML Manager under the keybinds tab and can be re-bound there to fit user preference.
+
+[source,csharp]
+----
+void RegisterKey(BaseMod mod, string description, KeyCode defaultKey, KeyCode modifier, Action function, KeyBindType type = KeyBindType.Down);
+----
+
+Parameters:
+
+* `mod` - A reference to your mod class (`this` if you're using it inside your main class).
+* `description` - The description for that keybind. Shows up in the ZML Manager keybinds tab.
+* `defaultKey` - The key to register. If you want to leave the key un-bound but still allow the user to assign a key then use `KeyCode.None`.
+* `modifier` - An extra modifier key for making keycombos. Supports Ctrl, Shift and Alt on both sides. If you don't want a modifier just specify `KeyCode.None`.
+* `function` - The function that is connected to this keybind
+* `type` - Optional parameter to define key up and key held events. Defaults to key down.
+
+Example of usage:
+
+[source,csharp]
+----
+using UnityEngine;
+using ZML.API;
+
+namespace MyMod
+{
+    [ZMLMod("zml.zi9.testmod", "Zi9's Cool Mod for Testing", "1.0.0", "Zi9")]
+    public class MyMod : BaseMod
+    {
+        public MyMod()
+        {
+            // Registering a keybind
+            ZMLAPI.Keybinds.RegisterKey(this, "Do Stuff in MyMod", KeyCode.L , KeyCode.LeftShift, DoStuff);
+        }
+
+        public void DoStuff()
+        {
+            // This code will run when the key you defined is pressed
+        }
+    }
+}
+----
+
+
+== Logging API
+
+This API allows you to log out messages to the ZML.log file.
+
+[source,csharp]
+----
+void Log(string message, string module = "LOG");
+void LogDebug(string message, string module = "DEBUG");
+void LogWarning(string message, string module = "WARN");
+void LogError(string message, string module = "ERR");
+----
+
+Parameters:
+
+* `message` - The message to log
+* `module` - Optional argument to set a different source
+
+[source,csharp]
+----
+void LogException(Exception e, bool recursive = false, string message = "Exception", string module = "EXCEPTION");
+----
+
+Parameters:
+
+* `e` - The Exception to log
+* `recursive` - Optional argument to recursively log out the stacktrace
+* `message` - Optional argument to set the message
+* `module` - Optional argument to set a different source
+
+== Manager API
+
+This API allows you to manage the visibility of ZML Manager.
+
+[source,csharp]
+----
+void ShowManager();
+void HideManager();
+----
+
+== Path API
+
+This API provides path strings for most used paths.
+
+[source,csharp]
+----
+string GameRoot {get;}
+string ManagedPath {get;}
+string ZMLPath {get;}
+string CorePath {get;}
+string ModsPath {get;}
+----
+
+* `GameRoot` - CarX root folder _(Where the game exe is)_
+* `ManagedPath` - Path to CarX/Drift Racing Online_Data/Managed _(Should not be frequently needed)_
+* `ZMLPath` - Path to CarX/ZML
+* `CorePath` - Path to CarX/ZML/core _(Should not be frequently needed)_
+* `ModsPath` - Path to CarX/ZML/mods

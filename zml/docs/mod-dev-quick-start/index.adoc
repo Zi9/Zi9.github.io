@@ -1,0 +1,118 @@
+= ZML Mod Develompent Quick Start
+By Zi9#3641
+:source-highlighter: highlight.js
+:icons: font 
+:toc: preamble
+
+This is a quick guide on getting a ZML mod built and running on CarX. You will need to be registered as a Mod Developer before you can load mods that are not protected (regular DLLs).
+
+NOTE: You should know atleast a bit about how to write code for Unity games and be able to use C# atleast at a beginner level. If needed, go through some basic tutorials before attempting to make a mod to avoid frustration.
+
+== Prepare your C# project
+To start off create a new C# Class Library(DLL) project in your preferred IDE of choice.
+Once you have a basic empty project created you'll want to add in the References to the required libraries. These reside in the `Drift Racing Online_Data/Managed` and `ZML/core` folders.
+
+A standard mod project usually needs the following References added:
+
+From the `Drift Racing Online_Data/Managed` folder::
+* `Assembly-CSharp.dll`
+* `UnityEngine.dll`
+* `UnityEngine.CoreModule.dll`
+From the `ZML/core` folder::
+* `ZML.API.dll`
+
+== Setting up your basic mod class
+ZML will look for the `ZMLMod` attribute on a class to identify mods. This attribute is used to setup your mod name, id, version and author information. It must be added to the line above the class declaration. In addition to that you must make your mod class inherit from the `BaseMod` class.
+
+This class will effectively be added as a MonoBehaviour into the game and will allow you to use the usual `Awake`, `Update` and `LateUpdate` functions. Additional documentation on writing MonoBehaviours can be found on the Unity docs.
+
+[source,csharp]
+----
+using ZML.API;
+
+namespace MyCoolMod
+{
+    [ZMLMod("zml.zi9.testmod", "Zi9's Cool Mod for Testing", "1.0.0", "Zi9")]
+    public class MyCoolMod : BaseMod
+    {
+        // Your mod code here
+    }
+}
+----
+
+== Compiling and testing your mod
+Once you have a basic mod class setup you can Compile it to a DLL file. When you are registered as a developer, ZML will allow you to directly load mods from DLLs. Place the compiled DLL inside your ZML/mods folder and start your game. You should see it appear in the mod list under the about tab or if you have enabled full mod list showing in the settings, it will appear on the loading screen aswell.
+
+== Using the ZML Toolbox for easy mod UI
+ZML provides an easy central toolbox for mods to render their UI into. It is implemented similarly to the Unity `OnGUI` function override but uses a custom `OnToolboxUI` override. To enable support for the ToolboxUI you need to implement the `IToolboxUI` interface in your mod class.
+
+[source,csharp]
+----
+using UnityEngine;
+using ZML.API;
+
+namespace MyCoolMod
+{
+    [ZMLMod("zml.zi9.testmod", "Zi9's Cool Mod for Testing", "1.0.0", "Zi9")]
+    public class MyCoolMod : BaseMod, IToolboxUI
+    {
+        public void OnToolboxGUI()
+        {
+            GUILayout.Button("Hello world!");
+            // You can use any GUILayout calls here
+        }
+        public void OnToolboxOpen()
+        {
+            // Leave this function empty if you don't need it or initialize some stuff here if you want
+            // You must however declare it because it is an interface
+        }
+    }
+}
+----
+
+This will add a new entry into the Toolbox that can be expanded by clicking on the mod name and once expanded will reveal your UI components.
+
+== Testing out some of ZML's API
+ZML provides some internal APIs for modders to use in their mods. Currently these include a Config API for saving and loading settings, a Keybind API to declare re-mappable keybinds and so on. All of the APIs are found inside the `ZMLAPI` class.
+
+Example using ZML's Logging API:
+
+[source,csharp]
+----
+using UnityEngine;
+using ZML.API;
+
+namespace MyCoolMod
+{
+    [ZMLMod("zml.zi9.testmod", "Zi9's Cool Mod for Testing", "1.0.0", "Zi9")]
+    public class MyCoolMod : BaseMod, IToolboxUI
+    {
+        public void OnToolboxGUI()
+        {
+            if (GUILayout.Button("Log Hello world!"))
+            {
+                ZMLAPI.Logging.Log("Hello World!!!"); // Adds '[LOG]: Hello World!!!' to the log
+                // Logging API also has an optional parameter to set the log entry prefix
+                ZMLAPI.Logging.Log("Testing", "MyMod"); // Adds '[MyMod]: Testing' to the log
+            }
+        }
+        public void OnToolboxOpen() {}
+    }
+}
+----
+
+To see all of the API that ZML provides head over to link:docs/api-docs.html[ZML API Documentation]
+
+== Publishing your mod
+Once your mod is completed and ready to be enabled globally, you'll need to run it through the *ModBuildTool*. This tool will encrypt your mod and protect it from any sort of manipulation. To use it you will need to request a developer key file and the tool itself. Before your mod is globally enabled it will go through a verification process by the ZML Team to assure the safety of it.
+
+Once you have the ModBuildTool and a developer key you can just drag and drop your mod DLL onto the ModBuildTool and you should see a window pop up telling you how the process went. Once completed you will have a .zm version of your mod that is protected.
+
+
+== Advanced topics
+
+=== Using patches
+
+To use patches you will need to add `0Harmony.dll` from the `ZML/core` folder as a reference to your project. This will give you access to the Harmony run-time patching library. 
+
+A full guide to using Harmony can be found at the link:https://harmony.pardeike.net/articles/basics.html[Harmony Documentation] page.
