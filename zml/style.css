@@ -56,10 +56,12 @@ hr {
 
 a {
     color: white;
+    text-decoration: none;
 }
 
 a:hover {
     color: white;
+    text-decoration: none;
 }
 
 .prefix-emoji {
@@ -72,6 +74,11 @@ a:hover {
 
 .centertext {
     text-align: center;
+}
+
+.centerdiv {
+    display: flex;
+    justify-content: space-around;
 }
 
 .graytext {
