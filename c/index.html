@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>&lt;3</title>
+    <style>
+        body {
+            background-color: #222;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: column;
+            align-items: center;
+            height: 90vh;
+            justify-content: center;
+            gap: 30px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        button {
+            width: 90px;
+            padding: 10px;
+            background-color: #555;
+            border: none;
+            color: white;
+            border-radius: 3px;
+        }
+        #message {
+            height: 60px;
+            width: 300px;
+            background-color: #555;
+            border: none;
+            color: white;
+            border-radius: 3px;
+            text-align: center;
+        }
+        .colors {
+            display: flex;
+            flex-direction: row;
+        }
+        .color {
+            color: white;
+            margin-right: 10px;
+        }
+        .icon {
+            font-size: 72pt;
+        }
+        .authorinfo {
+            color: #666;
+            font-size: 10pt;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        .sent {
+            color: #AFA;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .visible {
+            opacity: 100;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="icon">✨</p>
+    <div class="colors">
+        <input type="checkbox" id="red" name="red">
+        <p class="color">Red</p>
+        <input type="checkbox" id="green" name="green">
+        <p class="color">Green</p>
+        <input type="checkbox" id="blue" name="blue">
+        <p class="color">Blue</p>
+    </div>
+    <select name="mode" id="mode">
+        <option value="noblink">No blink</option>
+        <option value="slowblink">Slow blink</option>
+        <option value="fastblink">Fast blink</option>
+    </select>
+    <input id="message" placeholder="Message">
+    <button onclick="SendNotification()">Send</button>
+    <p class="sent">Message Sent!</p>
+    <p class="authorinfo">Made with ❤️ by ⚡</p>
+    <script>
+        function SendNotification() {
+            var params = {
+                "content": document.getElementById("message").value,
+                "embeds": [
+                    {
+                        "title": "Colors",
+                        "color": null,
+                        "fields": [
+                            {
+                                "name": "R",
+                                "value": document.getElementById("red").checked ? "1" : "0",
+                                "inline": true
+                            },
+                            {
+                                "name": "G",
+                                "value": document.getElementById("green").checked ? "1" : "0",
+                                "inline": true
+                            },
+                            {
+                                "name": "B",
+                                "value": document.getElementById("blue").checked ? "1" : "0",
+                                "inline": true
+                            },
+                            {
+                                "name": "MODE",
+                                "value": document.getElementById("mode").value,
+                                "inline": true
+                            }
+                        ],
+                        "timestamp": (new Date()).toJSON()
+                    }
+                ]
+            }
+            var url = atob("aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTA2MTYzNTE4OTk0NTY3NTg4OC81S05EaUxlOUhUcTQtWGhFSjVmd3hrM3RNRFdMMHB5RlFfVUdvV3pGaER0a2dPaUtVZWVUZEVYblN6WDgxaS1nLUx0WAo=");
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader('Content-type', 'application/json');
+            xhr.send(JSON.stringify(params));
+            xhr.onreadystatechange = function () {
+                if (this.status != 200) {
+                    document.getElementsByClassName("sent")[0].classList.add("visible");
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
