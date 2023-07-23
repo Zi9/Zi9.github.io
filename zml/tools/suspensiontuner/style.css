@@ -54,6 +54,13 @@ ul {
     margin-bottom: 0.75rem;
 }
 
+input {
+    color: white;
+    background-color: #333;
+    border-radius: 0;
+    border-style: solid;
+}
+
 li {
     font-weight: 200;
     margin-bottom: 0.5rem;
