@@ -1,6 +1,5 @@
 const weightInput = document.querySelector("#weightInput");
 const frontBalanceInput = document.querySelector("#frontBalanceInput");
-const cxRatioInput = document.querySelector("#cxRatioInput");
 
 const frontSpringsStiffnessLabel = document.querySelector("#frontSpringsStiffnessLabel");
 const rearSpringsStiffnessLabel = document.querySelector("#rearSpringsStiffnessLabel");
