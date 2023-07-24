@@ -1,0 +1,190 @@
+html {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+  background-image: url('../img/bg_2.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.img-logo {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 10px;
+}
+
+.img-logo img {
+  display: block;
+  width: 256px;
+  height: 128px;
+  margin: 0;
+  padding: 0;
+}
+
+h3 {
+  font-weight: 100;
+  margin: 0;
+}
+
+.inputbox {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.inputbox > p:nth-child(1) {
+  margin-left: auto;
+}
+
+.inputbox > p:nth-child(2) {
+  width: 60px;
+}
+
+input[type="number"] {
+  color: white;
+  background-color: #333;
+  background: rgba(230, 230, 230, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border: none;
+  outline: none;
+  border-radius: 0;
+}
+
+.mainapp {
+  margin: 1rem;
+  background: rgba(230, 230, 230, 0.15);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  display: block;
+  background: rgba(230, 230, 230, 0.01);
+  backdrop-filter: blur(10px);
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+a:hover {
+  color: white;
+  text-decoration: none;
+  background: rgba(230, 230, 230, 0.01);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+p {
+  font-weight: 200;
+  margin: 0;
+  padding: 0;
+}
+
+hr {
+  text-decoration: none;
+  background-color: rgba(230, 230, 230, 0);
+  border-style: none;
+}
+
+@media (max-width: 410px) {
+  .img-logo {
+    width: 128px;
+    height: 128px;
+  }
+  .img-logo img {
+    width: 128px;
+    height: 64px;
+  }
+  .mainapp {
+    padding: 1rem;
+  }
+  a {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 390px) {
+    .img-logo img {
+        width: 256px;
+        height: 128px;
+  }
+}
+
+@media (max-width: 350px) {
+  .img-logo {
+    width: 96px;
+    height: 96px;
+  }
+  .img-logo img {
+    width: 96px;
+    height: 48px;
+  }
+  .mainapp {
+    padding: 0.5rem;
+  }
+  a {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 320px) {
+  .img-logo {
+    width: 100px;
+    height: auto;
+  }
+  .img-logo img {
+    width: 100%;
+    height: auto;
+  }
+  .mainapp {
+    padding: 20px;
+  }
+  a {
+    padding: 10px;
+  }
+  h3 {
+    font-size: 16px;
+    margin: 0;
+  }
+  input[type="number"] {
+    height: 40px;
+  }
+  p {
+    padding: 0px;
+    margin: 0px;
+    word-wrap: break-word;
+  }
+  .inputbox > p:nth-child(1) {
+    margin-left: 0px;
+    width: inherit;
+  }
+  .inputbox > p:nth-child(2) {
+    width: 60px;
+  }
+}
