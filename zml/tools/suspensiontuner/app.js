@@ -23,8 +23,8 @@ function recalculate()
     var rearBalance = 100 - frontBalance;
     
 
-    var frontSpringsStiffness = (((weight / 100) * frontBalance) * 9.8 * 10 / 1000) * 1.35;
-    var rearSpringsStiffness = (((weight / 100) * rearBalance) * 9.8 * 10 / 1000) * 1.35;
+    var frontSpringsStiffness = (((weight / 100) * frontBalance) * 9.8 * 10 / 1000) * 1.32;
+    var rearSpringsStiffness = (((weight / 100) * rearBalance) * 9.8 * 10 / 1000) * 1.32;
 
     var frontDamperFastBump = ((((weight / 100) * frontBalance) / 2) * 9.8) / 1.072;
     var rearDamperFastBump = ((((weight / 100) * rearBalance) / 2) * 9.8) / 1.072;
