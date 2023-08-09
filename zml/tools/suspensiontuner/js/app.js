@@ -34,8 +34,8 @@ function recalculate()
     var frontDamperRebound = ((((weight / 100) * frontBalance) / 2) * 9.8) * 1.64;
     var rearDamperRebound = ((((weight / 100) * rearBalance) / 2) * 9.8) * 1.64;
 
-    // frontSpringsStiffnessLabel.textContent = Math.trunc(frontSpringsStiffness);
-    // rearSpringsStiffnessLabel.textContent = Math.trunc(rearSpringsStiffness);
+    frontSpringsStiffnessLabel.textContent = Math.trunc(frontSpringsStiffness);
+    rearSpringsStiffnessLabel.textContent = Math.trunc(rearSpringsStiffness);
     frontDamperFastBumpLabel.textContent = Math.trunc(frontDamperFastBump);
     rearDamperFastBumpLabel.textContent = Math.trunc(rearDamperFastBump);
     frontDamperFastReboundLabel.textContent = Math.trunc(frontDamperFastRebound);
