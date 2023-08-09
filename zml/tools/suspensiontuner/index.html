@@ -3,69 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap">
     <title>[STH] Suspension Tuning Helper</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap">
 </head>
-
 <body>
-    <div class="img-logo">
-        <img src="img/STH_LOGO.png" alt="Logo">
-    </div>
-    <h3>Created by Dranser, adapted for web by Zi9</h3>
-    <div class="mainapp">
-        <div class="inputbox">
-            <p>Car Weight: </p>
-            <input type="number" step="0.001" id="weightInput" oninput="recalculate()">
+    <div class="Application">
+        <div class="Logo">
+            <img src="img/STH_LOGO.png" alt="STH Logo">
         </div>
-        <div class="inputbox">
-            <p>Front Balance: </p>
-            <input type="number" step="0.001" id="frontBalanceInput" oninput="recalculate()">
+        <div class="UserInput">
+            <div class="inputWrapper">
+                <label for="carWeight">Car Weight:</label>
+                <input type="number" step="0.001" id="carWeight" oninput="recalculate()">
+            </div>
+            <div class="inputWrapper">
+                <label for="frontBalance">Front Balance:</label>
+                <input type="number" step="0.001" id="frontBalance" oninput="recalculate()">
+            </div>
         </div>
-        <hr>
-        <div class="inputbox">
-            <p>Front Springs Stiffness: </p>
-            <p id="frontSpringsStiffnessLabel">NULL</p>
+        <div class="CalculationForm">
+            <div class="variable">
+                <label for="frontDamperFastBump">Front Damper Fast Bump:</label>
+                <span id="frontDamperFastBump">Value 1</span>
+            </div>
+            <div class="variable">
+                <label for="rearDamperFastBump">Rear Damper Fast Bump:</label>
+                <span id="rearDamperFastBump">Value 2</span>
+            </div>
+            <div class="variable">
+                <label for="frontDamperFastRebound">Front Damper Fast Rebound:</label>
+                <span id="frontDamperFastRebound">Value 3</span>
+            </div>
+            <div class="variable">
+                <label for="rearDamperFastRebound">Rear Damper Fast Rebound:</label>
+                <span id="rearDamperFastRebound">Value 4</span>
+            </div>
+            <div class="variable">
+                <label for="frontDamperBump">Front Damper Bump:</label>
+                <span id="frontDamperBump">Value 5</span>
+            </div>
+            <div class="variable">
+                <label for="rearDamperBump">Rear Damper Bump:</label>
+                <span id="rearDamperBump">Value 6</span>
+            </div>
+            <div class="variable">
+                <label for="frontDamperRebound">Front Damper Rebound:</label>
+                <span id="frontDamperRebound">Value 7</span>
+            </div>
+            <div class="variable">
+                <label for="rearDamperRebound">Rear Damper Rebound:</label>
+                <span id="rearDamperRebound">Value 8</span>
+            </div>
         </div>
-        <div class="inputbox">
-            <p>Rear Springs Stiffness: </p>
-            <p id="rearSpringsStiffnessLabel">NULL</p>
+        <div class="Info">
+            <div class="button">
+                <a href="https://docs.google.com/spreadsheets/d/1738OHHb1ThNapS9rEqyZ-w8kKsow_1aSJNvvi8EwkAo/edit?usp=sharing" target="_blank">Aerodynamic properties</a>
+            </div>
+            <p>
+                Adopted for Web by Zi9
+            </p>
         </div>
-        <div class="inputbox">
-            <p>Front Damper Fast Bump: </p>
-            <p id="frontDamperFastBumpLabel">NULL</p>
-        </div>
-        <div class="inputbox">
-            <p>Rear Damper Fast Bump: </p>
-            <p id="rearDamperFastBumpLabel">NULL</p>
-        </div>
-        <div class="inputbox">
-            <p>Front Damper Fast Rebound: </p>
-            <p id="frontDamperFastReboundLabel">NULL</p>
-        </div>
-        <div class="inputbox">
-            <p>Rear Damper Fast Rebound: </p>
-            <p id="rearDamperFastReboundLabel">NULL</p>
-        </div>
-        <div class="inputbox">
-            <p>Front Damper Bump: </p>
-            <p id="frontDamperBumpLabel">NULL</p>
-        </div>
-        <div class="inputbox">
-            <p>Rear Damper Bump: </p>
-            <p id="rearDamperBumpLabel">NULL</p>
-        </div>
-        <div class="inputbox">
-            <p>Front Damper Rebound: </p>
-            <p id="frontDamperReboundLabel">NULL</p>
-        </div>
-        <div class="inputbox">
-            <p>Rear Damper Rebound: </p>
-            <p id="rearDamperReboundLabel">NULL</p>
-        </div>
-        <a href="https://docs.google.com/spreadsheets/d/1738OHHb1ThNapS9rEqyZ-w8kKsow_1aSJNvvi8EwkAo/edit?usp=sharing">Aerodynamic Properties</a>
     </div>
     <script src="js/app.js"></script>
 </body>
-
 </html>

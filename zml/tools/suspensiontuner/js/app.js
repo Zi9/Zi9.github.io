@@ -1,16 +1,16 @@
-const weightInput = document.querySelector("#weightInput");
-const frontBalanceInput = document.querySelector("#frontBalanceInput");
+const weightInput = document.querySelector("#carWeight");
+const frontBalanceInput = document.querySelector("#frontBalance");
 
-const frontSpringsStiffnessLabel = document.querySelector("#frontSpringsStiffnessLabel");
-const rearSpringsStiffnessLabel = document.querySelector("#rearSpringsStiffnessLabel");
-const frontDamperFastBumpLabel = document.querySelector("#frontDamperFastBumpLabel");
-const rearDamperFastBumpLabel = document.querySelector("#rearDamperFastBumpLabel");
-const frontDamperFastReboundLabel = document.querySelector("#frontDamperFastReboundLabel");
-const rearDamperFastReboundLabel = document.querySelector("#rearDamperFastReboundLabel");
-const frontDamperBumpLabel = document.querySelector("#frontDamperBumpLabel");
-const rearDamperBumpLabel = document.querySelector("#rearDamperBumpLabel");
-const frontDamperReboundLabel = document.querySelector("#frontDamperReboundLabel");
-const rearDamperReboundLabel = document.querySelector("#rearDamperReboundLabel");
+const frontSpringsStiffnessLabel = document.querySelector("#frontSpringsStiffness");
+const rearSpringsStiffnessLabel = document.querySelector("#rearSpringsStiffness");
+const frontDamperFastBumpLabel = document.querySelector("#frontDamperFastBump");
+const rearDamperFastBumpLabel = document.querySelector("#rearDamperFastBump");
+const frontDamperFastReboundLabel = document.querySelector("#frontDamperFastRebound");
+const rearDamperFastReboundLabel = document.querySelector("#rearDamperFastRebound");
+const frontDamperBumpLabel = document.querySelector("#frontDamperBump");
+const rearDamperBumpLabel = document.querySelector("#rearDamperBump");
+const frontDamperReboundLabel = document.querySelector("#frontDamperRebound");
+const rearDamperReboundLabel = document.querySelector("#rearDamperRebound");
 
 function recalculate()
 {
@@ -25,17 +25,17 @@ function recalculate()
     var frontSpringsStiffness = (((weight / 100) * frontBalance) * 9.8 * 10 / 1000) * 1.32;
     var rearSpringsStiffness = (((weight / 100) * rearBalance) * 9.8 * 10 / 1000) * 1.32;
 
-    var frontDamperFastBump = ((((weight / 100) * frontBalance) / 2) * 9.8) * 1.52;
-    var rearDamperFastBump = ((((weight / 100) * rearBalance) / 2) * 9.8) * 1.52;
-    var frontDamperFastRebound = ((((weight / 100) * frontBalance) / 2) * 9.8) * 1.646;
-    var rearDamperFastRebound = ((((weight / 100) * rearBalance) / 2) * 9.8) * 1.646;
-    var frontDamperBump = ((((weight / 100) * frontBalance) / 2) * 9.8) * 1.13;
-    var rearDamperBump = ((((weight / 100) * rearBalance) / 2) * 9.8) * 1.13;
-    var frontDamperRebound = ((((weight / 100) * frontBalance) / 2) * 9.8) * 2.05;
-    var rearDamperRebound = ((((weight / 100) * rearBalance) / 2) * 9.8) * 2.05;
+    var frontDamperFastBump = ((((weight / 100) * frontBalance) / 2) * 9.8) * 1.32;
+    var rearDamperFastBump = ((((weight / 100) * rearBalance) / 2) * 9.8) * 1.32;
+    var frontDamperFastRebound = ((((weight / 100) * frontBalance) / 2) * 9.8) * 1.44 ;
+    var rearDamperFastRebound = ((((weight / 100) * rearBalance) / 2) * 9.8) * 1.44;
+    var frontDamperBump = ((((weight / 100) * frontBalance) / 2) * 9.8) * 1.22;
+    var rearDamperBump = ((((weight / 100) * rearBalance) / 2) * 9.8) * 1.22;
+    var frontDamperRebound = ((((weight / 100) * frontBalance) / 2) * 9.8) * 1.64;
+    var rearDamperRebound = ((((weight / 100) * rearBalance) / 2) * 9.8) * 1.64;
 
-    frontSpringsStiffnessLabel.textContent = Math.trunc(frontSpringsStiffness);
-    rearSpringsStiffnessLabel.textContent = Math.trunc(rearSpringsStiffness);
+    // frontSpringsStiffnessLabel.textContent = Math.trunc(frontSpringsStiffness);
+    // rearSpringsStiffnessLabel.textContent = Math.trunc(rearSpringsStiffness);
     frontDamperFastBumpLabel.textContent = Math.trunc(frontDamperFastBump);
     rearDamperFastBumpLabel.textContent = Math.trunc(rearDamperFastBump);
     frontDamperFastReboundLabel.textContent = Math.trunc(frontDamperFastRebound);
