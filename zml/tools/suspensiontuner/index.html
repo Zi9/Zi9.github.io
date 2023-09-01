@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>[STH] Suspension Tuning Helper</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/adoptation.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap">
 </head>
 <body>
@@ -15,11 +16,23 @@
         <div class="UserInput">
             <div class="inputWrapper">
                 <label for="carWeight">Car Weight:</label>
-                <input type="number" step="0.001" id="carWeight" oninput="recalculate()">
+                <input type="number" step="0.001" oninput="recalculate()" id="carWeight">
             </div>
             <div class="inputWrapper">
                 <label for="frontBalance">Front Balance:</label>
-                <input type="number" step="0.001" id="frontBalance" oninput="recalculate()">
+                <input type="number" step="0.001" oninput="recalculate()" id="frontBalance">
+            </div>
+            <div class="inputWrapper">
+                <label for="cxRatio">CX Ratio:</label>
+                <input type="number" step="0.001" oninput="recalculate()" id="cxRatio">
+            </div>
+            <div class="inputWrapper">
+                <label for="frontDownforce">F_DownForce:</label>
+                <input type="number" step="0.001" oninput="recalculate()" id="frontDownforce">
+            </div>
+            <div class="inputWrapper">
+                <label for="rearDownforce">R_DownForce:</label>
+                <input type="number" step="0.001" oninput="recalculate()" id="rearDownforce">
             </div>
         </div>
         <div class="CalculationForm">

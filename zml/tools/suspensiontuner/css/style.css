@@ -7,16 +7,18 @@
 
 body {
     background-image: url("../img/bg_2.jpg");
-    background-size: cover;
-    background-position: center center;
+    background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
     height: 100vh;
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .Application {
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,7 +30,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 2rem auto;
+    margin: 1rem;
 }
 
 .Logo img {
@@ -40,25 +42,23 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 400px;
+    width: 26rem;
+    height: 15.5rem;
     background-color: rgba(230, 230, 230, 0.15);
     backdrop-filter: blur(10px);
-    margin-bottom: 0.6rem;
     border-radius: 10px;
-}
-
-.UserInput {
-    display: flex;
+    padding: 0.4rem;
+    margin: 0.6rem;
 }
 
 .inputWrapper {
     display: flex;
     background-color: rgba(230, 230, 230, 0.05);
     backdrop-filter: blur(10px);
-    padding: 10px;
     border-radius: 5px;
-    margin: 0.4rem;
-    width: 90%;
+    width: 92%;
+    padding: 0.6rem;
+    margin: 0.2rem;
 }
 
 .UserInput label {
@@ -81,32 +81,30 @@ body {
 }
 
 .CalculationForm {
-    width: 400px;
-    text-align: center;
-    margin-bottom: 0.6rem;
+    position: relative;
     background-color: rgba(230, 230, 230, 0.25);
     backdrop-filter: blur(10px);
     border-radius: 10px;
+    width: 26.5rem;
+    margin-bottom: 0.6em;
 }
 
 .variable {
     padding: 10px;
+    width: 18rem;
+    padding-left: 3rem; 
 }
 
 .variable label {
-    text-align: right;
+    position: relative;
     display: inline-block;
-    margin-right: 0.4rem;
-    width: 198px;
-}
-
-.variable span {
-    text-align: left;
+    text-align: right;
+    width: 14rem;
 }
 
 .Info {
     height: auto;
-    width: 400px;
+    width: 26.5rem;
     background-color: rgba(230, 230, 230, 0.15);
     backdrop-filter: blur(10px);
     border-radius: 10px;
@@ -120,13 +118,13 @@ body {
 .button {
     background-color: rgba(230, 230, 230, 0.15);
     backdrop-filter: blur(10px);
-    padding: 10px 20px;
+    padding: 0.4rem;
+    margin: 0.8rem;
     border-radius: 5px;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
     color: #333;
-    margin: 0.4rem;
 }
 
 .button a {
@@ -135,195 +133,4 @@ body {
 
 .button:hover {
     background-color: rgba(230, 230, 230, 0.25);
-}
-
-@media (max-width: 912px) {
-    .Logo {
-        margin-bottom: 0.4rem;
-    }
-    .Logo img {
-        width: 256px;
-        height: 128px;
-    }
-
-    .UserInput {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 140px;
-        width: 600px;
-        margin-bottom: 0.6rem;
-        border-radius: 5px;
-    }
-
-    .UserInput input {
-        width: 80%;
-    }
-
-    .CalculationForm {
-        width: 600px;
-        text-align: center;
-        margin-bottom: 0.2rem;
-        border-radius: 5px;
-    }
-
-    .Info {
-        height: 100px;
-        width: 600px;
-        border-radius: 10px;
-    }
-}
-
-@media (max-width: 412px) {
-    .Logo {
-        margin-bottom: 0.4rem;
-    }
-    .Logo img {
-        width: 256px;
-        height: 128px;
-    }
-
-    .UserInput {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 300px;
-        height: auto;
-        margin-bottom: 0.6rem;
-        border-radius: 5px;
-    }
-
-    .variable {
-        padding: 5px;
-    }
-
-    .UserInput input {
-        width: 55%;
-    }
-
-    .CalculationForm {
-        width: 300px;
-        text-align: center;
-        margin-bottom: 0.2rem;
-        border-radius: 5px;
-    }
-
-    .Info {
-        height: 100px;
-        width: 300px;
-        border-radius: 10px;
-    }
-}
-
-@media (max-width: 390px) {
-    .Logo {
-        margin-bottom: 0.4rem;
-    }
-    .Logo img {
-        width: 256px;
-        height: 128px;
-    }
-
-    .UserInput {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 300px;
-        margin-bottom: 0.6rem;
-        border-radius: 5px;
-    }
-
-    .variable {
-        padding: 5px;
-    }
-
-    .UserInput input {
-        width: 55%;
-    }
-
-    .CalculationForm {
-        width: 300px;
-        text-align: center;
-        margin-bottom: 0.2rem;
-        border-radius: 5px;
-    }
-
-    .Info {
-        height: 100px;
-        width: 300px;
-        border-radius: 10px;
-    }
-}
-
-@media (max-width: 353px) {
-    .Logo {
-        margin-bottom: 0.4rem;
-    }
-    .Logo img {
-        width: 256px;
-        height: 128px;
-    }
-
-    .UserInput {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 300px;
-        margin-bottom: 0.6rem;
-        border-radius: 5px;
-    }
-
-    .variable {
-        padding: 5px;
-    }
-
-    .CalculationForm {
-        width: 300px;
-        text-align: center;
-        margin-bottom: 0.2rem;
-        border-radius: 5px;
-    }
-
-    .Info {
-        height: 100px;
-        width: 300px;
-        border-radius: 10px;
-    }
-}
-
-@media (max-width: 320px) {
-    .Logo {
-        margin-bottom: 0.8rem;
-    }
-    .Logo img {
-        width: 192px;
-        height: 96px;
-    }
-
-    .UserInput {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 300px;
-        margin-bottom: 0.6rem;
-        border-radius: 5px;
-    }
-
-    .variable {
-        padding: 5px;
-    }
-
-    .CalculationForm {
-        width: 300px;
-        text-align: center;
-        margin-bottom: 0.2rem;
-        border-radius: 5px;
-    }
-
-    .Info {
-        height: 100px;
-        width: 300px;
-        border-radius: 10px;
-    }
 }

@@ -1,5 +1,8 @@
 const weightInput = document.querySelector("#carWeight");
 const frontBalanceInput = document.querySelector("#frontBalance");
+const cxRatioInput = document.querySelector("#cxRatio");
+const frontDownforceInput = document.querySelector("#frontDownforce");
+const rearDownforceInput = document.querySelector("#rearDownforce");
 
 const frontSpringsStiffnessLabel = document.querySelector("#frontSpringsStiffness");
 const rearSpringsStiffnessLabel = document.querySelector("#rearSpringsStiffness");
@@ -16,23 +19,35 @@ function recalculate()
 {
     var weight = weightInput.value;
     var frontBalance = frontBalanceInput.value;
+    var cxRatio = cxRatioInput.value;
+    var frontDownforce = frontDownforceInput.value;
+    var rearDownforce = rearDownforceInput.value;
 
     if (isNaN(weight)) return;
     if (isNaN(frontBalance)) return;
+    if (isNaN(cxRatio)) return;
+    if (isNaN(frontDownforce)) return;
+    if (isNaN(rearDownforce)) return;
 
     var rearBalance = 100 - frontBalance;
     
+    var frontDownforceRatio = (frontDownforce / 10) + 1;
+    var rearDownForceRatio = (rearDownforce / 10) + 1;
+
+
     var frontSpringsStiffness = (((weight / 100) * frontBalance) * 9.8 * 10 / 1000) * 1.32;
     var rearSpringsStiffness = (((weight / 100) * rearBalance) * 9.8 * 10 / 1000) * 1.32;
 
-    var frontDamperFastBump = ((((weight / 100) * frontBalance) / 2) * 9.8) * 1.32;
-    var rearDamperFastBump = ((((weight / 100) * rearBalance) / 2) * 9.8) * 1.32;
-    var frontDamperFastRebound = ((((weight / 100) * frontBalance) / 2) * 9.8) * 1.44 ;
-    var rearDamperFastRebound = ((((weight / 100) * rearBalance) / 2) * 9.8) * 1.44;
-    var frontDamperBump = ((((weight / 100) * frontBalance) / 2) * 9.8) * 1.22;
-    var rearDamperBump = ((((weight / 100) * rearBalance) / 2) * 9.8) * 1.22;
-    var frontDamperRebound = ((((weight / 100) * frontBalance) / 2) * 9.8) * 1.64;
-    var rearDamperRebound = ((((weight / 100) * rearBalance) / 2) * 9.8) * 1.64;
+
+    var frontDamperFastBump = ((((weight / 100) * frontBalance) / 2) * 9.8) * cxRatio * 1.15;
+    var rearDamperFastBump = ((((weight / 100) * rearBalance) / 2) * 9.8) * cxRatio * 1.15;
+    var frontDamperFastRebound = ((((weight / 100) * frontBalance) / 2) * 9.8) * cxRatio / 1.1;
+    var rearDamperFastRebound = ((((weight / 100) * rearBalance) / 2) * 9.8) * cxRatio / 1.1;
+    var frontDamperBump = ((((weight / 100) * frontBalance) / 2) * 9.8) * frontDownforceRatio * 1.1;
+    var rearDamperBump = ((((weight / 100) * rearBalance) / 2) * 9.8) * rearDownForceRatio * 1.1;
+    var frontDamperRebound = ((((weight / 100) * frontBalance) / 2) * 9.8) * frontDownforceRatio * 1.15;
+    var rearDamperRebound = ((((weight / 100) * rearBalance) / 2) * 9.8) * rearDownForceRatio * 1.15; 
+
 
     frontSpringsStiffnessLabel.textContent = Math.trunc(frontSpringsStiffness);
     rearSpringsStiffnessLabel.textContent = Math.trunc(rearSpringsStiffness);
@@ -44,7 +59,6 @@ function recalculate()
     rearDamperBumpLabel.textContent = Math.trunc(rearDamperBump);
     frontDamperReboundLabel.textContent = Math.trunc(frontDamperRebound);
     rearDamperReboundLabel.textContent = Math.trunc(rearDamperRebound);
-    
 }
 
 recalculate();

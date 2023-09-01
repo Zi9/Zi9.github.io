@@ -1,0 +1,160 @@
+@media (max-height: 786px) 
+{
+    body 
+    {
+        background-repeat: repeat-y;
+    }
+}
+
+@media(max-height: 763px) 
+{
+    body 
+    {
+        background-repeat: repeat-y;
+    }
+    .Logo img 
+    {
+        width: 128px;
+        height: 64px;
+    }
+    .UserInput 
+    {
+        width: 22rem;
+    }
+    .CalculationForm 
+    {
+        width: 22rem;
+    }
+    .variable 
+    {
+        width: 18rem;
+        padding-left: 1rem;
+        margin: 0rem;
+        padding: 0.4rem;
+    }
+    .Info 
+    {
+        width: 22rem;
+    }
+}
+
+@media(max-width: 414px) 
+{
+    .Logo img 
+    {
+        width: 128px;
+        height: 64px;
+    }
+    .UserInput 
+    {
+        width: 22rem;
+    }
+    .CalculationForm 
+    {
+        width: 22rem;
+    }
+    .variable 
+    {
+        width: 18rem;
+        padding-left: 1rem; 
+    }
+    .Info 
+    {
+        width: 22rem;
+    }
+}
+
+@media(max-width: 412px) 
+{
+    .Logo img 
+    {
+        width: 128px;
+        height: 64px;
+    }
+    .UserInput 
+    {
+        width: 22rem;
+    }
+    .inputWrapper 
+    {
+        padding: 0.4rem;
+    }
+    .CalculationForm 
+    {
+        width: 22rem;
+    }
+    .variable 
+    {
+        width: 18rem;
+        padding-left: 1rem; 
+    }
+    .Info 
+    {
+        width: 22rem;
+    }
+}
+
+@media(max-width: 375px) 
+{
+    .Logo img 
+    {
+        width: 128px;
+        height: 64px;
+    }
+    .UserInput 
+    {
+        width: 20rem;
+    }
+    .inputWrapper 
+    {
+        padding: 0.4rem;
+    }
+    .CalculationForm 
+    {
+        width: 20.5rem;
+    }
+    .variable 
+    {
+        width: 18rem;
+        padding-left: 1rem; 
+    }
+    .Info 
+    {
+        width: 20.5rem;
+    }
+}
+
+@media(max-width: 320px) 
+{
+    .Logo img 
+    {
+        width: 128px;
+        height: 64px;
+    }
+    .UserInput 
+    {
+        width: 18rem;
+    }
+    
+    .inputWrapper 
+    {
+        padding: 0.4rem;
+    }
+    .CalculationForm 
+    {
+        width: 18.5rem;
+    }
+    .variable 
+    {
+        width: 16.5rem;
+        padding-left: 1rem;
+    }
+    .variable label 
+    {
+        width: 12.5rem;
+    }
+    .Info 
+    {
+        width: 18.5rem;
+    }
+}
