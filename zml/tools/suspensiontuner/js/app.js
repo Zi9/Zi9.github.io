@@ -17,11 +17,11 @@ const rearDamperReboundLabel = document.querySelector("#rearDamperRebound");
 
 function recalculate()
 {
-    var weight = weightInput.value;
-    var frontBalance = frontBalanceInput.value;
-    var cxRatio = cxRatioInput.value;
-    var frontDownforce = frontDownforceInput.value;
-    var rearDownforce = rearDownforceInput.value;
+    var weight = parseFloat(weightInput.value);
+    var frontBalance = parseFloat(frontBalanceInput.value);
+    var cxRatio = parseFloat(cxRatioInput.value) + 1;
+    var frontDownforce = parseFloat(frontDownforceInput.value);
+    var rearDownforce = parseFloat(rearDownforceInput.value);
 
     if (isNaN(weight)) return;
     if (isNaN(frontBalance)) return;
@@ -30,14 +30,12 @@ function recalculate()
     if (isNaN(rearDownforce)) return;
 
     var rearBalance = 100 - frontBalance;
-    
+
     var frontDownforceRatio = (frontDownforce / 10) + 1;
     var rearDownForceRatio = (rearDownforce / 10) + 1;
 
-
     var frontSpringsStiffness = (((weight / 100) * frontBalance) * 9.8 * 10 / 1000) * 1.32;
     var rearSpringsStiffness = (((weight / 100) * rearBalance) * 9.8 * 10 / 1000) * 1.32;
-
 
     var frontDamperFastBump = ((((weight / 100) * frontBalance) / 2) * 9.8) * cxRatio * 1.15;
     var rearDamperFastBump = ((((weight / 100) * rearBalance) / 2) * 9.8) * cxRatio * 1.15;
@@ -46,8 +44,7 @@ function recalculate()
     var frontDamperBump = ((((weight / 100) * frontBalance) / 2) * 9.8) * frontDownforceRatio * 1.1;
     var rearDamperBump = ((((weight / 100) * rearBalance) / 2) * 9.8) * rearDownForceRatio * 1.1;
     var frontDamperRebound = ((((weight / 100) * frontBalance) / 2) * 9.8) * frontDownforceRatio * 1.15;
-    var rearDamperRebound = ((((weight / 100) * rearBalance) / 2) * 9.8) * rearDownForceRatio * 1.15; 
-
+    var rearDamperRebound = ((((weight / 100) * rearBalance) / 2) * 9.8) * rearDownForceRatio * 1.15;
 
     frontSpringsStiffnessLabel.textContent = Math.trunc(frontSpringsStiffness);
     rearSpringsStiffnessLabel.textContent = Math.trunc(rearSpringsStiffness);
