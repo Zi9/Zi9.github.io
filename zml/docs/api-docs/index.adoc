@@ -3,6 +3,8 @@ By Zi9#3641
 :source-highlighter: highlight.js
 :icons: font 
 :toc: preamble
+:stylesheet: zmldocs.css
+:stylesdir: ../
 
 NOTE: All of ZML's API is contained within the static `ZMLAPI` class.
 
