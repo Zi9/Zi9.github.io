@@ -2,16 +2,69 @@
 <html>
 
 <head>
-    <meta http-equiv="refresh" content="0; url='https://zi9.github.io/zml/'" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+    <title>Zi9.json</title>
     <style>
-        html {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        body {
+            font-family: "Roboto Mono", monospace;
+            font-optical-sizing: auto;
+            font-weight: 300;
+            font-style: normal;
+            background-color: #333333;
+            color: #dddddd;
+            display: flex;
+            height: 98vh;
+            justify-content: center;
         }
+        p {
+            margin: 0;
+        }        
+        a {
+            color: #dddddd;
+        }
+        a:visited {
+            color: #dddddd;
+        }
+        .code-box {
+            display: block;
+            place-self: center;
+            background-color: #292929;
+            padding: 10px;
+            box-shadow: 2px 2px 5px black;
+        }
+        .indent1 { margin-left: 1rem; }
+        .indent2 { margin-left: 2rem; }
+        .indent3 { margin-left: 3rem; }
+        .key { color: #d14949; }
+        .valstr { color: #98df5e; }
+        .brackets { color: #44d3bb; }
     </style>
 </head>
 
 <body>
-    <p>Redirecting to <a href="https://zi9.github.io/zml/">https://zi9.github.io/zml/...</a>.</p>
+    <div class="code-box">
+        <p class="brackets">{</p>
+        <p class="indent1"><span class="key">"name"</span>: <span class="valstr">"Zi"</span>,</p>
+        <p class="indent1"><span class="key">"brief"</span>: <span class="valstr">"Programmer, Sysadmin, Tech enthusiast"</span>,</p>
+        <p class="indent1"><span class="key">"contact"</span>: <span class="brackets">{</span></p>
+        <p class="indent2"><span class="key">"discord"</span>: <span class="valstr">"zi9"</span></p>
+        <p class="brackets indent1">},</p>
+        <p class="indent1"><span class="key">"links"</span>: <span class="brackets">{</span></p>
+        <p class="indent2"><span class="key">"github"</span>: <a href="https://github.com/Zi9"><span class="valstr">"https://github.com/Zi9"</a></span>,</p>
+        <p class="indent2"><span class="key">"ko-fi"</span>: <a href="https://ko-fi.com/zi9xd"><span class="valstr">"https://ko-fi.com/zi9xd"</a></span>,</p>
+        <p class="indent2"><span class="key">"youtube"</span>: <a href="https://youtube.com/@zi9xd"><span class="valstr">"https://youtube.com/@zi9xd"</a></span></p>
+        <p class="brackets indent1">},</p>
+        <p class="indent1"><span class="key">"projects"</span>: <span class="brackets">{</span></p>
+        <p class="indent2"><span class="key">"ZML"</span>: <span class="brackets">{</span></p>
+        <p class="indent3"><span class="key">"brief"</span>: <span class="valstr">"A purpose built mod loader for CarX"</span>,</p>
+        <p class="indent3"><span class="key">"page"</span>: <a href="https://zi9.github.io/zml"><span class="valstr">"https://zi9.github.io/zml"</a></span>,</p>
+        <p class="indent3"><span class="key">"discord"</span>: <a href="https://discord.com/invite/DpR9xWzPyb"><span class="valstr">"https://discord.com/invite/DpR9xWzPyb"</a></span></p>
+        <p class="brackets indent2">}</p>
+        <p class="brackets indent1">}</p>
+        <p class="brackets">}</p>
+    </div>
 </body>
 
 </html>
