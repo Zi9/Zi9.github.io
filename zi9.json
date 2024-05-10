@@ -1,0 +1,45 @@
+{
+  "name": "Zi",
+  "brief": "Programmer, Sysadmin, Tech enthusiast",
+  "geolocation": "EE 🇪🇪",
+  "contact": {
+    "discord": "zi9"
+  },
+  "links": {
+    "github": "https://github.com/Zi9",
+    "ko-fi": "https://ko-fi.com/zi9xd",
+    "youtube": "https://youtube.com/@zi9xd"
+  },
+  "preferred_languages": [
+    "C",
+    "C#",
+    "Python"
+  ],
+  "interests": [
+    "Reverse Engineering",
+    "Linux (Arch BTW)",
+    "Gamedev"
+  ],
+  "projects": {
+    "ZML": {
+      "brief": "A purpose built mod loader for CarX",
+      "techstack": "C, C#(mono) + Python pipelining",
+      "page": "https://zi9.github.io/zml",
+      "discord": "https://discord.com/invite/DpR9xWzPyb"
+    },
+    "Deformers": {
+      "brief": "A recreation of the Terep2 demo by Nagymathe Denes",
+      "techstack": "Pure C using Raylib",
+      "repo": "https://github.com/Zi9/Deformers"
+    },
+    "MTMR": {
+      "brief": "Monster Truck Madness 2 Remake",
+      "techstack": "Godot 4 (C#/.NET8)"
+    },
+    "PODtato": {
+      "brief": "Toolkit for working with MTM2 POD files",
+      "techstack": "C#/.NET8"
+    },
+    "Radium": null
+  }
+}
