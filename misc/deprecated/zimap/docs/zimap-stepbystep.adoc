@@ -1,0 +1,359 @@
+= Zi9's MapLoader map creation step by step guide
+diip#0684 & highwaywarrior#6878
+v1.0
+:toc:
+:toclevels: 5
+:sectnums:
+
+:sectnumlevels: 5
+
+Zi9's Map Loader is a plugin for CarX Drift Racing Online, that enables community made maps to be loaded ingame like regular CarX maps. These maps are built within the Unity game engine and exported as AssetBundles.
+
+== Requirements
+
+For building maps you will need:
+
+* Unity 2020.3.2f1
+* Map Builder Utility (Zimap SDK) - Requires .NET Framework 4.7
+
+== Making a map mod
+
+=== Installing all necessary Unity software
+
+==== Installing Unity Hub
+
+Visit the Unity official site: https://unity3d.com/get-unity/download
+
+Select “Download Unity Hub” and start the installer once it finishes download.
+
+image:images/image11.png[image]
+
+Unity Hub: Setup
+
+Review the license terms and Choose install location
+
+image:images/image24.png[image]
+image:images/image34.png[image]
+image:images/image45.png[image]
+image:images/image65.png[image]
+
+==== Installing Unity v2020.3.2f1
+
+NOTE: Images show an older version, you need 2020.3.2f1
+
+Visit the Unity version archive: https://unity3d.com/get-unity/download/archive
+
+Select “Unity Hub” download icon.
+
+This will download 2020.3.2f1
+
+image:images/image67.png[image]
+
+Install Unity v2020.3.2f1
+
+image:images/image33.png[image]
+image:images/image5.png[image]
+image:images/image41.png[image]
+image:images/image17.png[image]
+image:images/image64.png[image]
+image:images/image68.png[image]
+image:images/image4.png[image]
+image:images/image2.png[image]
+image:images/image17.png[image]
+
+
+
+Launch Unity 2019.4.14f1
+
+image:images/image46.png[image]
+
+Launch Unity Hub
+
+Check and make sure it shows version “2019.4.14f1” in the Installs tab
+
+image:images/image20.png[image]
+
+=== Initializing the map data directory
+
+Create a new Folder. 
+
+In this document we will use the name ModMap.
+
+image:images/image3.png[image]
+
+Download and Launch Mapbuilder.exe
+
+After generating an id, a text document called id.txt will be created in the same file location as Mapbuilder.exe
+
+image:images/image22.png[image]
+
+Locate the id.txt and move into the ModMap folder
+
+image:images/image55.png[image]
+
+Create a new text document named meta.txt
+
+image:images/image19.png[image]
+
+The containing text in meta.txt should include “Name: (name of map)” in the first line
+
+image:images/image50.png[image]
+
+=== Preparing Unity for map creation
+
+Select Projects tab and create new Unity project
+
+image:images/image51.png[image]
+image:images/image40.png[image]
+
+Unity software should launch after selecting Create
+
+Once Unity finishes launch, go to Window>Package Manager
+
+image:images/image12.png[image]
+
+Select High Definition RP and press Install
+
+image:images/image35.png[image]
+image:images/image56.png[image]
+
+After it finishes “Fix All”, Select Create One
+
+image:images/image48.png[image]
+
+Shift Left Click to select the Main Camera and Directional Light 
+
+Right Click the selection and select Delete
+
+image:images/image61.png[image]
+
+Select the Add button in the Hierarchy section 
+
+Select Volume, and then select Sky and Fog Volume
+
+image:images/image62.png[image]
+
+Left Click the Physically Based Sky option button 
+
+Select Remove to delete
+
+image:images/image43.png[image]
+
+Select Add Override 
+
+Select Sky, then select HDRI Sky 
+
+image:images/image30.png[image]
+image:images/image6.png[image]
+image:images/image32.png[image]
+
+=== Importing your map into Unity
+
+Drag and Drop the .blend file and textures file into the Assets path. 
+
+Drag and Drop .blend file into the Unity viewport.
+
+image:images/image36.png[image]
+image:images/image58.png[image]
+
+Select the .blend file and press Extract Materials in the Inspector window
+
+Create new folder for the extracted materials
+
+image:images/image44.png[image]
+image:images/image16.png[image]
+
+Open the extracted materials folder from the 
+
+Project window and select all materials.
+
+image:images/image31.png[image]
+
+Check Alpha Clipping and change Metallic value to 1, and Smoothness to 0 
+
+image:images/image15.png[image]
+
+Right Click .blend file in the Hierarchy window and select Unpack Prefab
+
+image:images/image47.png[image]
+
+Right Click the .blend file and select Rename, change name to “road”
+
+image:images/image57.png[image]
+
+Select all objects inside “road” file in the Hierarchy window
+
+Select Add Component
+
+image:images/image28.png[image]
+
+Type Mesh Collider in the search box. Select Mesh Collider
+
+image:images/image63.png[image]
+
+Select the Add button in the Hierarchy section
+
+Select Create Empty
+
+image:images/image38.png[image]
+
+Right Click and select Rename, change name to ModMapRoot
+
+image:images/image21.png[image]
+
+Create another GameObject 
+
+Select the Add button in the Hierarchy section
+
+Select Create Empty 
+
+Right Click and select Rename, change name to “spawnpoint”
+
+image:images/image53.png[image]
+
+Shift select “spawnpoint” and “road”
+
+Drag and Drop into ModMapRoot
+
+image:images/image10.png[image]
+ 
+Select all nocol_ name prefix 
+
+Open Mesh Collider Settings and select Remove Component 
+
+image:images/image70.png[image]
+image:images/image25.png[image]
+
+Create a new GameObject 
+
+Select the Add button in the Hierarchy section
+
+Select Create Empty
+
+rename to rigidbody
+
+Select all rb_ name prefix and move it into rigidbody
+
+image:images/image18.png[image]
+
+With all objects in rigidbody selected, click on Add Component 
+
+Search “rigidbody” and select rigidbody component
+
+image:images/image39.png[image]
+image:images/image37.png[image]
+
+Create a new GameObject 
+
+Select the Add button in the Hierarchy section
+
+Select Create Empty
+
+rename to grass
+
+Select all grass_ name prefix and move it into grass 
+
+image:images/image42.png[image]
+
+Make sure your Hierarchy of parent/child GameObjects are in this format
+
+image:images/image9.png[image]
+
+=== Saving the map scene
+
+File>Save As
+
+image:images/image7.png[image]
+
+Locate id.txt inside your ModMap Folder that was generated by Mapbuilder.exe.
+
+Save Unity scene with id as filename
+
+image:images/image66.png[image]
+
+Confirm that your Unity scene is now the generated id
+
+image:images/image1.png[image]
+
+=== Building the asset bundle
+
+Visit https://github.com/Unity-Technologies/AssetBundles-Browser/releases/
+
+Select the Source code (tar.gz) Download
+
+image:images/image60.png[image]
+
+Move AssetBundles-Browser-1.7.0.tar.gz into your Unity Assets Folder
+
+image:images/image14.png[image]
+
+Select Window tab in Unity 
+
+Select Package Manager
+
+image:images/image29.png[image]
+
+Locate Asset Bundle Browser and select Install
+
+image:images/image26.png[image]
+
+Select the map scene in the Project Tab
+
+Select the drop down menu that is labeled None
+
+image:images/image52.png[image]
+
+Select New
+
+image:images/image49.png[image]
+
+Change the AssetBundle name to “map”
+
+image:images/image59.png[image]
+
+If prompted to reload scene due to modification, select reload
+
+image:images/image27.png[image]
+
+Select the Window Tab 
+
+Select AssetBundle Browser
+
+image:images/image13.png[image]
+
+Select the Build tab and select Build
+
+image:images/image54.png[image]
+
+Locate the built .assetbundle of your map in the Build filepath
+
+image:images/image69.png[image]
+
+Move the .assetbundle into the ModMap Folder
+
+image:images/image23.png[image]
+
+
+=== Adding the textures for UI
+
+The map loader needs 4 textures for every custom map.
+
+icon.png:: This is what is shown in the singleplayer track selection screen
+loadscreen.png:: The loading screen background image
+lobby.png:: The image that is shown when making a new multiplayer lobby
+minimap.png:: Minimap image shown in the singleplayer track selection screen
+
+Add these textures into your mod map folder.
+
+NOTE: Keep texture sizes reasonable (a 1920x1080 icon doesn't make sense)
+
+=== Ready to build
+
+.The final folder structure for building a zimap file
+image:images/image8.png[image]
+
+Make sure you are not missing any files or else the build process will fail.
+
+=== Building the map using Zimap SDK
+
+To build the map you just have to drag the whole map data folder onto the MapBuilder.exe icon and that will start the build process. If the process is succesful you should have a ``.zimap`` file in your map data folder.
