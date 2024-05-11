@@ -1,6 +1,0 @@
-Name: Garage
-Author: Drubilka
-Size: 27MB
-Download: https://drive.google.com/file/d/1y4JMsOqmYkt-zSbWc4QO9dlN_TtmbJWs/view?usp=sharing
-ID: 8808175
-Description: Small garage map with nice lighting setup for screenshots
