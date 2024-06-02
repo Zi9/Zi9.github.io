@@ -23,23 +23,26 @@
   "projects": {
     "ZML": {
       "brief": "A purpose built mod loader for CarX",
-      "techstack": "C, C#(mono) + Python pipelining",
+      "techstack": "C, C# (mono) + Python pipelining",
       "page": "https://zi9.github.io/zml",
       "discord": "https://discord.com/invite/DpR9xWzPyb"
     },
     "Deformers": {
       "brief": "A recreation of the Terep2 demo by Nagymathe Denes",
-      "techstack": "Pure C using Raylib",
+      "techstack": "C / Raylib",
       "repo": "https://github.com/Zi9/Deformers"
     },
     "MTMR": {
-      "brief": "Monster Truck Madness 2 Remake",
-      "techstack": "Godot 4 (C#/.NET8)"
+      "brief": "Monster Truck Madness: Reborn",
+      "techstack": "C / Raylib"
     },
     "PODtato": {
       "brief": "Toolkit for working with MTM2 POD files",
-      "techstack": "C#/.NET8"
+      "techstack": "C# (.NET8)"
     },
-    "Radium": null
+    "Radium": {
+      "brief": null,
+      "techstack": "C# (.NET8) / Godot 4"
+    }
   }
 }
