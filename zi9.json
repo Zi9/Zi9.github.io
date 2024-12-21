@@ -24,7 +24,7 @@
     "ZML": {
       "brief": "A purpose built mod loader for CarX",
       "techstack": "C, C# (mono) + Python pipelining",
-      "page": "https://zi9.github.io/zml",
+      "page": "https://zi9.dev/zml",
       "discord": "https://discord.com/invite/DpR9xWzPyb"
     },
     "Deformers": {
