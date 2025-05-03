@@ -27,6 +27,11 @@
       "page": "https://zi9.dev/zml",
       "discord": "https://discord.com/invite/DpR9xWzPyb"
     },
+    "LaunchCue": {
+      "brief": "Scriptable light system for Assetto Corsa competitions",
+      "techstack": "C# (.NET9) / Blazor",
+      "page": "https://zi9.dev/launchcue"
+    },
     "Deformers": {
       "brief": "A recreation of the Terep2 demo by Nagymathe Denes",
       "techstack": "C / Raylib",
