@@ -15,22 +15,24 @@
             font-family: "Roboto";
         }
         body {
-            background-image: url("bg.png");
-            background-size: cover;
-            background-repeat: no-repeat;
             background-color: #222222;
+            display: flex;
+            width: 100%;
+            justify-content: center;
         }
         main {
             display: flex;
             flex-direction: column;
             flex-wrap: nowrap;
-            width: 30vw;
-            margin: 3vw;
+            width: 35vw;
+            padding: 4vw;
+            align-items: center;
         }
         h1 {
             font-weight: 300;
             font-size: 3vw;
             margin-bottom: 1rem;
+            padding-right: 10vw;
         }
         i {
             color: lightgray;
@@ -39,16 +41,66 @@
             padding-bottom: 1.5vw;
             font-size: 1.25vw;
         }
+        @media (max-width: 1000px) {
+            main {
+                width: 90%;
+            }
+            h1 {
+                font-size: 3rem;
+            }
+            i {
+                font-size: 1.25rem;
+            }
+        }
         p {
             font-weight: 300;
+            text-align: center;
         }
         hr {
             width: 100%;
             border-color: gray;
         }
+        @media (min-width: 1920px) {
+            .picture_container {
+                top: 0;
+                position: absolute;
+            }
+            img {
+                position: fixed;
+            }
+            .screenshot1 {
+                transform: scale(0.5) rotateX(17deg) rotateY(18deg) translateY(-500px) translateX(140px);
+                right: 0;
+            }
+            .screenshot2 {
+                transform: scale(0.5) rotateX(-17deg) rotateY(18deg) translateY(-200px) translateX(-140px);
+                left: 0;
+            }
+        }
+        @media (max-width: 1920px) {
+            .picture_container {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+            }
+            img {
+                position: relative;
+                width: 40%;
+                margin-bottom: auto;
+            }
+            .screenshot1 {
+                /* transform: scale(0.5) rotateX(17deg) rotateY(18deg) translateY(-500px) translateX(140px); */
+                right: 0;
+            }
+            .screenshot2 {
+                /* transform: scale(0.5) rotateX(-17deg) rotateY(18deg) translateY(-200px) translateX(-140px); */
+                left: 0;
+            }
+        }
     </style>
 </head>
-    <body>
+<body>
     <main>
     <h1>🚦 LaunchCue</h1>
     <i>Signal the Start. Own the Line.</i>
@@ -61,6 +113,10 @@
     <p>🚦 Built to maximize compatibility with the <b>SWIRLY Rentals Diesel Generator Light</b> -- Rent the legend. Rent the light.</p>
     <hr>
     <p>Interested? Contact zi9 on Discord for details</p>
+    <div class="picture_container">
+        <img class="screenshot1" src="screenshot1.png"/>
+        <img class="screenshot2" src="screenshot2.png"/>
+    </div>
     </main>
-    </body>
+</body>
 </html>
