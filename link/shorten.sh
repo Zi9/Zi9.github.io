@@ -13,7 +13,7 @@ else
     FOLDER=$(find "$SHORTLINK_PATH" -type d | wc -l)
 fi
 
-SHORTLINK_PATH="/home/zi/dev/website/shortlink"
+SHORTLINK_PATH="/home/zi/dev/website/link"
 mkdir -p "$SHORTLINK_PATH/$FOLDER/"
 cat >> "$SHORTLINK_PATH/$FOLDER/index.html"<< EOF
 <!DOCTYPE HTML>
@@ -41,4 +41,4 @@ git push
 
 echo "===================="
 echo ""
-echo "Short link created! -> https://zi9.dev/shortlink/$FOLDER"
+echo "Short link created! -> https://zi9.dev/link/$FOLDER"
