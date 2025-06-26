@@ -130,7 +130,7 @@
             var x = lines[i].split("|");
             var rpm = parseFloat(x[0]);
             var power = parseFloat(x[1]);
-            var adjusted = parseFloat(power+power*offset).toFixed(0);
+            var adjusted = parseFloat(power+power*offset).toFixed(2);
             if (adjusted > highestPower) {
                 highestPower = parseFloat(adjusted);
                 highestRPM = parseFloat(rpm);
