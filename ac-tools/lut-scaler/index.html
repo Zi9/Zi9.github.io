@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUT Scaler</title>
+    <meta name="description" content="Scaler for Assetto Corsa engine LUT files">
+    <link rel="icon" type="image/x-icon" href="https://zi9.dev/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #333;
+            color: white;
+            font-family: Roboto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            max-width: fit-content;
+            align-items: center;
+        }
+        button {
+            background-color: #444;
+            color: white;
+            padding: 5px;
+            border-width: 1px;
+        }
+        textarea {
+            background-color: #444;
+            color: white;
+        }
+        h3 {
+            margin: 0;
+        }
+        p {
+            text-align: center;
+        }
+        .sliders {
+            display: grid;
+            grid-template-columns: 4rem auto;
+            grid-template-rows: auto;
+            gap: 3px;
+            width: 100%;
+        }
+        .slider {
+            width: 100%;
+            accent-color: #888;
+        }
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 3px;
+        }
+
+        .input-boxes {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto 40rem;
+            padding-bottom: 10px;
+        }
+        #pwr-offset {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Engine LUT Scaler for AC</h1>
+        <div class="input-boxes">
+            <h3>▼ Input LUT</h3>
+            <h3>▼ Output LUT</h3>
+            <textarea id="input"></textarea>
+            <textarea id="output" disabled></textarea>
+        </div>
+        <h3 id="pwr-offset">Power offset: 0%<br>Peak Power: To be calculated</h3>
+        <p id="pwr-detail">Slider: 0%<br>Multiplier: x1</p>
+        <div class="sliders">
+            <p>Adjust:</p>
+            <input id="slider" type="range" class="slider" min="-100" max="100" value="0" step="0.1" oninput="updateValues()">
+        </div>
+        <div class="button-grid">
+            <button onclick="setMultiplier('+1')">+1%</button>
+            <button onclick="setMultiplier('+2')">+2%</button>
+            <button onclick="setMultiplier('+5')">+5%</button>
+            <button onclick="setMultiplier('+10')">+10%</button>
+            <button onclick="setMultiplier('x1.25')">x1.25</button>
+            <button onclick="setMultiplier('x1.50')">x1.50</button>
+            <button onclick="setMultiplier('x1.75')">x1.75</button>
+            <button onclick="setMultiplier('x2')">x2</button>
+            <button onclick="setMultiplier('-1')">-1%</button>
+            <button onclick="setMultiplier('-2')">-2%</button>
+            <button onclick="setMultiplier('-5')">-5%</button>
+            <button onclick="setMultiplier('-10')">-10%</button>
+            <button onclick="setMultiplier('x0.75')">x0.75</button>
+            <button onclick="setMultiplier('x0.50')">x0.50</button>
+            <button onclick="setMultiplier('x0.25')">x0.25</button>
+            <button onclick="setMultiplier('Reset')">Reset</button>
+        </div>
+    </main>
+</body>
+<script>
+    var slider = document.getElementById("slider");
+    var pwrLabel = document.getElementById("pwr-offset");
+    var detailLabel = document.getElementById("pwr-detail");
+    var inputBox = document.getElementById("input");
+    var outputBox = document.getElementById("output");
+    var multiplier = 1;
+    function recalculate(offset) {
+    }
+    function updateValues() {
+        var powerOffset = (slider.value * multiplier).toFixed(1);
+        detailLabel.innerHTML = `Slider: ${slider.value}%<br>Multiplier: x${multiplier}`;
+        var offset = powerOffset / 100.0;
+
+        var output = "";
+        var lines = inputBox.value.split('\n');
+        var highestRPM = 0;
+        var highestPower = 0;
+        for (let i = 0; i < lines.length; i++) {
+            if (lines[i] == "") continue;
+            var x = lines[i].split("|");
+            var rpm = parseFloat(x[0]);
+            var power = parseFloat(x[1]);
+            var adjusted = parseFloat(power+power*offset).toFixed(0);
+            if (adjusted > highestPower) {
+                highestPower = parseFloat(adjusted);
+                highestRPM = parseFloat(rpm);
+            }
+            output += `${rpm}|${adjusted}\n`;
+        }
+        pwrLabel.innerHTML = `Power offset: ${powerOffset}%<br>Peak power: ${highestPower}Nm/${((highestPower * highestRPM) / 7127.0).toFixed(2)}hp @ ${highestRPM}rpm`
+        outputBox.textContent = output.trimEnd();
+    }
+    function setMultiplier(amount) {
+        if (amount.startsWith("+")) {
+            multiplier += parseFloat(amount.substring(1))/100.0;
+        } else if (amount.startsWith("-")) {
+            multiplier -= parseFloat(amount.substring(1))/100.0;
+        } else if (amount.startsWith("x")) {
+            multiplier *= parseFloat(amount.substring(1));
+        } else {
+            multiplier = 1;
+            slider.value = 0;
+        }
+        multiplier = parseFloat(multiplier.toFixed(2));
+        updateValues();
+    }
+</script>
+
+</html>
