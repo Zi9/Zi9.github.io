@@ -3,98 +3,189 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="The Zi9 website!!!">
+    <meta name="description" content="Zi9's Personal Site">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
-    <title>Zi9.json</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@300;300&display=swap" rel="stylesheet">
+    <title>Zi9's Website</title>
     <style>
         body {
-            font-family: "Roboto Mono", monospace;
-            font-optical-sizing: auto;
-            font-weight: 300;
-            font-style: normal;
-            background-color: #333333;
-            color: #dddddd;
+            background-color: #222;
+            color: white;
             display: flex;
             height: 98vh;
             justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
-        p {
+        p,ul {
             margin: 0;
+            font-family: "Roboto";
+            font-weight: 300;
+            text-shadow: 2px 2px 2px black;
         }        
         a {
-            color: #dddddd;
+            color: white;
         }
         a:visited {
-            color: #dddddd;
+            color: white;
         }
-        .code-box {
-            display: block;
+        .box{
+            display: flex;
             place-self: center;
-            background-color: #292929;
-            padding: 10px;
-            box-shadow: 2px 2px 5px black;
         }
-        .indent1 { margin-left: 1rem; }
-        .indent2 { margin-left: 2rem; }
-        .indent3 { margin-left: 3rem; }
-        .key { color: #f17660; }
-        .valstr { color: #98df5e; }
-        .valnull { color: #679cff; }
-        .brackets { color: #44d3bb; }
+        .al-end {
+            align-items: end;
+        }
+        .col {
+            flex-direction: column;
+        }
+        .gap {
+            gap: 10px;
+        }
+        @keyframes pulse {
+            0% {
+                text-shadow: 0px 0px 5px white;
+            }
+            50% {
+                text-shadow: 0px 0px 5px transparent;
+            }
+            100% {
+                text-shadow: 0px 0px 5px white;
+            }
+        }
+        pre {
+            line-height: 0.92rem;
+            transition: all 0.5s;
+            cursor: default;
+            margin: 0;
+            text-shadow: 0px 0px 4px white;
+            animation: pulse 2s infinite;
+        }
+        pre:hover {
+            text-shadow: 0px 0px 10px transparent;
+            color: transparent;
+            animation: none;
+        }
+        h1 {
+            padding-right: 100px;
+            font-size: 48pt;
+            margin-bottom: 0;
+            text-shadow: 0px 0px 5px white;
+            transition: all 0.5s;
+            cursor: default;
+            animation: pulse 2s infinite;
+        }
+        h1:hover {
+            text-shadow: 0px 0px 10px red;
+            color: red;
+            animation: none;
+        }
+        hr {
+            width: 500px;
+            border-color: #777;
+        }
+        main {
+            box-shadow: 2px 2px 5px black;
+            background-color: #292929;
+            width: min-content;
+            padding: 32px;
+            border-radius: 2px;
+        }
+        ul {
+            list-style: square;
+            padding-inline-start: 20px;
+            margin-bottom: 0.5rem;
+        }
     </style>
 </head>
 
 <body>
-    <div class="code-box">
-        <p class="brackets">{</p>
-        <p class="indent1"><span class="key">"name"</span>: <span class="valstr">"Zi"</span>,</p>
-        <p class="indent1"><span class="key">"brief"</span>: <span class="valstr">"Programmer, Sysadmin, Tech enthusiast"</span>,</p>
-        <p class="indent1"><span class="key">"geolocation"</span>: <span class="valstr">"EE 🇪🇪"</span>,</p>
-        <p class="indent1"><span class="key">"contact"</span>: <span class="brackets">{</span></p>
-        <p class="indent2"><span class="key">"discord"</span>: <span class="valstr">"zi9"</span></p>
-        <p class="brackets indent1">},</p>
-        <p class="indent1"><span class="key">"links"</span>: <span class="brackets">{</span></p>
-        <p class="indent2"><span class="key">"github"</span>: <a href="https://github.com/Zi9"><span class="valstr">"https://github.com/Zi9"</a></span>,</p>
-        <p class="indent2"><span class="key">"ko-fi"</span>: <a href="https://ko-fi.com/zi9xd"><span class="valstr">"https://ko-fi.com/zi9xd"</a></span>,</p>
-        <p class="indent2"><span class="key">"youtube"</span>: <a href="https://youtube.com/@zi9xd"><span class="valstr">"https://youtube.com/@zi9xd"</a></span></p>
-        <p class="brackets indent1">},</p>
-        <p class="indent1"><span class="key">"preferred_languages"</span>: <span class="brackets">[</span><span class="valstr">"C"</span>, <span class="valstr">"C#"</span>, <span class="valstr">"Python"</span><span class="brackets">]</span>,</p>
-        <p class="indent1"><span class="key">"interests"</span>: <span class="brackets">[</span><span class="valstr">"Reverse Engineering"</span>, <span class="valstr">"Linux (Arch BTW)"</span>, <span class="valstr">"Gamedev"</span><span class="brackets">]</span>,</p>
-        <p class="indent1"><span class="key">"projects"</span>: <span class="brackets">{</span></p>
-        <p class="indent2"><span class="key">"ZML"</span>: <span class="brackets">{</span></p>
-        <p class="indent3"><span class="key">"brief"</span>: <span class="valstr">"A purpose built mod loader for CarX"</span>,</p>
-        <p class="indent3"><span class="key">"techstack"</span>: <span class="valstr">"C, C# (mono) + Python pipelining"</span>,</p>
-        <p class="indent3"><span class="key">"page"</span>: <a href="https://zi9.dev/zml"><span class="valstr">"https://zi9.dev/zml"</a></span>,</p>
-        <p class="indent3"><span class="key">"discord"</span>: <a href="https://discord.com/invite/DpR9xWzPyb"><span class="valstr">"https://discord.com/invite/DpR9xWzPyb"</a></span></p>
-        <p class="brackets indent2">},</p>
-        <p class="indent2"><span class="key">"LaunchCue"</span>: <span class="brackets">{</span></p>
-        <p class="indent3"><span class="key">"brief"</span>: <span class="valstr">"Scriptable light system for Assetto Corsa competitions"</span>,</p>
-        <p class="indent3"><span class="key">"techstack"</span>: <span class="valstr">"C# (.NET9) / Blazor"</span>,</p>
-        <p class="indent3"><span class="key">"page"</span>: <a href="https://zi9.dev/launchcue"><span class="valstr">"https://zi9.dev/launchcue"</a></span>,</p>
-        <p class="brackets indent2">},</p>
-        <p class="indent2"><span class="key">"Deformers"</span>: <span class="brackets">{</span></p>
-        <p class="indent3"><span class="key">"brief"</span>: <span class="valstr">"A recreation of the Terep2 demo by Nagymathe Denes"</span>,</p>
-        <p class="indent3"><span class="key">"techstack"</span>: <span class="valstr">"C / Raylib"</span>,</p>
-        <p class="indent3"><span class="key">"repo"</span>: <a href="https://github.com/Zi9/Deformers"><span class="valstr">"https://github.com/Zi9/Deformers"</a></span></p>
-        <p class="brackets indent2">},</p>
-        <p class="indent2"><span class="key">"MTMR"</span>: <span class="brackets">{</span></p>
-        <p class="indent3"><span class="key">"brief"</span>: <span class="valstr">"Monster Truck Madness: Reborn"</span>,</p>
-        <p class="indent3"><span class="key">"techstack"</span>: <span class="valstr">"C / Raylib"</span></p>
-        <p class="brackets indent2">},</p>
-        <p class="indent2"><span class="key">"PODtato"</span>: <span class="brackets">{</span></p>
-        <p class="indent3"><span class="key">"brief"</span>: <span class="valstr">"Toolkit for working with MTM2 POD files"</span>,</p>
-        <p class="indent3"><span class="key">"techstack"</span>: <span class="valstr">"C# (.NET8)"</span></p>
-        <p class="brackets indent2">},</p>
-        <p class="indent2"><span class="key">"Radium"</span>: <span class="brackets">{</span></p>
-        <p class="indent3"><span class="key">"brief"</span>: <span class="valnull">null</span>,</p>
-        <p class="indent3"><span class="key">"techstack"</span>: <span class="valstr">"C# (.NET8) / Godot 4"</span></p>
-        <p class="brackets indent2">}</p>
-        <p class="brackets indent1">}</p>
-        <p class="brackets">}</p>
-    </div>
+    <main>
+        <div class="box al-end">
+            <h1>Zi9</h1>
+            <pre>
+ _                       
+ \`*-.                   
+  )  _`-.                
+ .  : `. .               
+ : _   '  \              
+ ; *` _.   `*-._         
+ `-.-'          `-.      
+   ;       `       `.    
+   :.       .        \   
+   . \  .   :   .-'   .  
+   '  `+.;  ;  '      :  
+   :  '  |    ;       ;-.
+   ; '   : :`-:     _.`* ;
+.*' /  .*' ; .*`- +'  `*'
+`*-*   `*-*  `*-*'       </pre>
+        </div>
+        <hr>
+        <div class="box gap col">
+            <p style="padding-top: 20px;">Hi there, I'm Zi</p>
+            <p>I am a hobby programmer currently working as a Linux sysadmin</p>
+            <p>My interests include 
+                <u title="Mostly file formats and structures - parsing out data is fun">reverse engineering</u>, 
+                <u title="Reimplementing old games using original data is really cool">gamedev</u>, 
+                <u title="Terminals are home">TUIs</u> and <u title="I use Arch BTW (but also Debian on my home servers)">Linux</u></p>
+            <p style="padding-bottom: 20px;">Mostly fluent in <b>C</b>, <b>C#</b> and <b>Python</b> with experience in various others</p>
+            <p>My Projects:</p>
+            <ul>
+                <li><b>ZML</b>
+                    <ul>
+                        <li><b>Brief: </b>A purpose built mod loader for CarX</li>
+                        <li><b>Techstack: </b>C, C# (mono) + Python pipelining</li>
+                        <li><b>Page: </b><a href="/zml">/zml</a></li>
+                        <li><b>Discord: </b><a href="https://discord.com/invite/DpR9xWzPyb">Join</a></li>
+                    </ul>
+                </li>
+                <li><b>LaunchCue</b>
+                    <ul>
+                        <li><b>Brief: </b>Scriptable light system for Assetto Corsa competitions</li>
+                        <li><b>Techstack: </b>C# (.NET9) / Blazor</li>
+                        <li><b>Page: </b><a href="/launchcue">/launchcue</a></li>
+                    </ul>
+                </li>
+                <li><b>MTMR</b>
+                    <ul>
+                        <li><b>Brief: </b>Monster Truck Madness: Reborn</li>
+                        <li><b>Techstack: </b>C / Raylib / ODE Physics</li>
+                    </ul>
+                </li>
+                <li><b>Deformers</b>
+                    <ul>
+                        <li><b>Brief: </b>A recreation of the Terep2 demo by Nagymathe Denes</li>
+                        <li><b>Techstack: </b>C / Raylib</li>
+                        <li><b>Repo: </b><a href="https://github.com/Zi9/deformers">on Github</a></li>
+                    </ul>
+                </li>
+                <li><b>PODtato</b>
+                    <ul>
+                        <li><b>Brief: </b>Toolkit for working with MTM2 POD files</li>
+                        <li><b>Techstack: </b>C# (.NET8)</li>
+                    </ul>
+                </li>
+                <li><b>Radioactive Game Toolkits</b>
+                    <ul>
+                        <li><b>Techstack: </b>C# (.NET8) / Godot 4
+                            <ul>
+                                <li><b>Radium</b> for CarX Drift Racing Online</li>
+                                <li><b>Radon</b> for Assetto Corsa</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <p>Contact/Links --> <b>Discord: </b>zi9 | 
+                <a href="https://github.com/Zi9"><b>Github</b></a> | 
+                <a href="https://ko-fi.com/zi9xd"><b>Ko-Fi</b></a> | 
+                <a href="https://youtube.com/@zi9xd"><b>YouTube</b></a> | 
+                <b title="I live in Estonia">EE 🇪🇪</b>
+            </p>
+        </div>
+    </main>
 </body>
 
 </html>
