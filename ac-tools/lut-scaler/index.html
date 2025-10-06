@@ -72,41 +72,50 @@
         .utilbtn {
             margin-left: 5px;
         }
+        .mainbox {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
     </style>
 </head>
 
 <body>
     <main>
         <h1>Engine LUT Scaler for AC</h1>
-        <div class="input-boxes">
-            <h3>▼ Input LUT<button class="utilbtn" onclick="reformat()">Reformat</button></h3>
-            <h3>▼ Output LUT<button class="utilbtn" onclick="copy()">Copy</button></h3>
-            <textarea id="input"></textarea>
-            <textarea id="output" disabled></textarea>
-        </div>
-        <h3 id="pwr-offset">Power offset: 0%<br>Peak Power: To be calculated</h3>
-        <p id="pwr-detail">Slider: 0%<br>Multiplier: x1</p>
-        <div class="sliders">
-            <p>Adjust:</p>
-            <input id="slider" type="range" class="slider" min="-100" max="100" value="0" step="0.1" oninput="updateValues()">
-        </div>
-        <div class="button-grid">
-            <button onclick="setMultiplier('+1')">+1%</button>
-            <button onclick="setMultiplier('+2')">+2%</button>
-            <button onclick="setMultiplier('+5')">+5%</button>
-            <button onclick="setMultiplier('+10')">+10%</button>
-            <button onclick="setMultiplier('x1.25')">x1.25</button>
-            <button onclick="setMultiplier('x1.50')">x1.50</button>
-            <button onclick="setMultiplier('x1.75')">x1.75</button>
-            <button onclick="setMultiplier('x2')">x2</button>
-            <button onclick="setMultiplier('-1')">-1%</button>
-            <button onclick="setMultiplier('-2')">-2%</button>
-            <button onclick="setMultiplier('-5')">-5%</button>
-            <button onclick="setMultiplier('-10')">-10%</button>
-            <button onclick="setMultiplier('x0.75')">x0.75</button>
-            <button onclick="setMultiplier('x0.50')">x0.50</button>
-            <button onclick="setMultiplier('x0.25')">x0.25</button>
-            <button onclick="setMultiplier('Reset')">Reset</button>
+        <div class="mainbox">
+            <div class="input-boxes">
+                <h3>▼ Input LUT<button class="utilbtn" onclick="reformat()">Reformat</button></h3>
+                <h3>▼ Output LUT<button class="utilbtn" onclick="copy()">Copy</button></h3>
+                <textarea id="input"></textarea>
+                <textarea id="output" disabled></textarea>
+            </div>
+            <div>
+                <h3 id="pwr-offset">Power offset: 0%<br>Peak Power: To be calculated</h3>
+                <p id="pwr-detail">Slider: 0%<br>Multiplier: x1</p>
+                <div class="sliders">
+                    <p>Adjust:</p>
+                    <input id="slider" type="range" class="slider" min="-100" max="100" value="0" step="0.001" oninput="updateValues()">
+                </div>
+                <div class="button-grid">
+                    <button onclick="setMultiplier('+1')">+1%</button>
+                    <button onclick="setMultiplier('+2')">+2%</button>
+                    <button onclick="setMultiplier('+5')">+5%</button>
+                    <button onclick="setMultiplier('+10')">+10%</button>
+                    <button onclick="setMultiplier('x1.25')">x1.25</button>
+                    <button onclick="setMultiplier('x1.50')">x1.50</button>
+                    <button onclick="setMultiplier('x1.75')">x1.75</button>
+                    <button onclick="setMultiplier('x2')">x2</button>
+                    <button onclick="setMultiplier('-1')">-1%</button>
+                    <button onclick="setMultiplier('-2')">-2%</button>
+                    <button onclick="setMultiplier('-5')">-5%</button>
+                    <button onclick="setMultiplier('-10')">-10%</button>
+                    <button onclick="setMultiplier('x0.75')">x0.75</button>
+                    <button onclick="setMultiplier('x0.50')">x0.50</button>
+                    <button onclick="setMultiplier('x0.25')">x0.25</button>
+                    <button onclick="setMultiplier('Reset')">Reset</button>
+                </div>
+            </div>
         </div>
     </main>
 </body>
