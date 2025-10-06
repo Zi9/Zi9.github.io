@@ -9,7 +9,7 @@
     <link rel="icon" type="image/x-icon" href="https://zi9.dev/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #333;
@@ -69,6 +69,9 @@
         #pwr-offset {
             text-align: center;
         }
+        .utilbtn {
+            margin-left: 5px;
+        }
     </style>
 </head>
 
@@ -76,8 +79,8 @@
     <main>
         <h1>Engine LUT Scaler for AC</h1>
         <div class="input-boxes">
-            <h3>▼ Input LUT</h3>
-            <h3>▼ Output LUT</h3>
+            <h3>▼ Input LUT<button class="utilbtn" onclick="reformat()">Reformat</button></h3>
+            <h3>▼ Output LUT<button class="utilbtn" onclick="copy()">Copy</button></h3>
             <textarea id="input"></textarea>
             <textarea id="output" disabled></textarea>
         </div>
@@ -114,7 +117,20 @@
     var inputBox = document.getElementById("input");
     var outputBox = document.getElementById("output");
     var multiplier = 1;
-    function recalculate(offset) {
+    function copy() {
+        navigator.clipboard.writeText(outputBox.textContent);
+    }
+    function reformat() {
+        var output = "";
+        var lines = inputBox.value.split('\n');
+        for (let i = 0; i < lines.length; i++) {
+            if (lines[i] == "") continue;
+            var x = lines[i].split("|");
+            var rpm = parseFloat(x[0]);
+            var power = parseFloat(x[1]);
+            output += `${rpm}|${power}\n`;
+        }
+        inputBox.value = output.trimEnd();
     }
     function updateValues() {
         var powerOffset = (slider.value * multiplier).toFixed(1);
