@@ -131,6 +131,7 @@
             output += `${rpm}|${power}\n`;
         }
         inputBox.value = output.trimEnd();
+        updateValues();
     }
     function updateValues() {
         var powerOffset = (slider.value * multiplier).toFixed(1);
