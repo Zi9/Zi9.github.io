@@ -77,6 +77,17 @@
             gap: 30px;
             align-items: center;
         }
+        #manualinput {
+            height: 1rem;
+        }
+        .manual {
+            display: grid;
+            grid-template-columns: 8rem auto;
+            grid-template-rows: auto;
+            gap: 3px;
+            width: 100%;
+            align-items: center;
+        }
     </style>
 </head>
 
@@ -85,9 +96,9 @@
         <h1>Engine LUT Scaler for AC</h1>
         <div class="mainbox">
             <div class="input-boxes">
-                <h3>▼ Input LUT<button class="utilbtn" onclick="reformat()">Reformat</button></h3>
-                <h3>▼ Output LUT<button class="utilbtn" onclick="copy()">Copy</button></h3>
-                <textarea id="input"></textarea>
+                <h3>▼ Input LUT<button class="utilbtn" onclick="reformat()">Load/Update</button></h3>
+                <h3>▼ Output LUT<button class="utilbtn" onclick="copy()">Copy</button><input type="checkbox" id="tabs" onclick="reformat()">Use Tabs</input></h3>
+                <textarea id="input" onpaste="reformat()"></textarea>
                 <textarea id="output" disabled></textarea>
             </div>
             <div>
@@ -96,6 +107,10 @@
                 <div class="sliders">
                     <p>Adjust:</p>
                     <input id="slider" type="range" class="slider" min="-100" max="100" value="0" step="0.001" oninput="updateValues()">
+                </div>
+                <div class="manual">
+                    <p>Manual Input (%):</p>
+                    <input id="manualinput" type="number" min="-1000" max="1000" value="0" step="0.001" oninput="updateValues(true)">
                 </div>
                 <div class="button-grid">
                     <button onclick="setMultiplier('+1')">+1%</button>
@@ -121,10 +136,12 @@
 </body>
 <script>
     var slider = document.getElementById("slider");
+    var manualinput = document.getElementById("manualinput");
     var pwrLabel = document.getElementById("pwr-offset");
     var detailLabel = document.getElementById("pwr-detail");
     var inputBox = document.getElementById("input");
     var outputBox = document.getElementById("output");
+    var tabs = document.getElementById("tabs");
     var multiplier = 1;
     function copy() {
         navigator.clipboard.writeText(outputBox.textContent);
@@ -142,8 +159,13 @@
         inputBox.value = output.trimEnd();
         updateValues();
     }
-    function updateValues() {
-        var powerOffset = (slider.value * multiplier).toFixed(1);
+    function updateValues(manual = false) {
+        if (manual) {
+            var powerOffset = manualinput.value;
+        } else {
+            var powerOffset = (slider.value * multiplier).toFixed(1);
+            manualinput.value = slider.value;
+        }
         detailLabel.innerHTML = `Slider: ${slider.value}%<br>Multiplier: x${multiplier}`;
         var offset = powerOffset / 100.0;
 
@@ -161,7 +183,12 @@
                 highestPower = parseFloat(adjusted);
                 highestRPM = parseFloat(rpm);
             }
-            output += `${rpm}|${adjusted}\n`;
+            if (tabs.checked) {
+                output += `${rpm}\t|\t${adjusted}\n`;
+            }
+            else {
+                output += `${rpm}|${adjusted}\n`;
+            }
         }
         pwrLabel.innerHTML = `Power offset: ${powerOffset}%<br>Peak power: ${highestPower}Nm/${((highestPower * highestRPM) / 7127.0).toFixed(2)}hp @ ${highestRPM}rpm`
         outputBox.textContent = output.trimEnd();
