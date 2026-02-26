@@ -1,0 +1,67 @@
+body {
+    background-color: #222;
+    color: #CCC;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-family: monospace;
+}
+
+header {
+    max-width: 15%;
+    /* background-color: #2A2A2A; */
+    /* box-shadow: #000 3px 3px 5px; */
+    padding: 20px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+main {
+    width: 60%;
+    background-color: #2A2A2A;
+    box-shadow: #000 3px 3px 5px;
+    padding: 16px;
+    max-width: 60rem;
+}
+
+a {
+    color: #CCC;
+}
+
+a:visited {
+    color: #AAA;
+}
+
+header > a:visited {
+    color: #CCC;
+}
+
+h1.branding {
+    font-family: 'Times New Roman', Times, serif;
+    text-shadow: 2px 2px 2px black;
+}
+
+h1, ul, li {
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    padding-left: 24px;
+}
+
+hr {
+    margin-bottom: 10px;
+    border-color: #777;
+    width: 100%;
+}
+
+.indexlink > a {
+    text-decoration: none;
+    border-bottom: 1px solid #777;
+}
+
+h1, h2, h3, h4, h5, h6, b {
+    color: #FFF;
+}

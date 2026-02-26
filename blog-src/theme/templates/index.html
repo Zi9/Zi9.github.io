@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Zi9's Blog{% endblock %}
+
+{% block body %}
+<h1>Index</h1>
+<hr>
+<ul>
+    {% for article in articles_page.object_list %}
+    <!-- <li><a href="/{{ article.url }}">[{{ article.locale_date }}] {{ article.title }}</a></li> -->
+    <li class="indexlink"><a href="/{{ article.url }}">{{ article.locale_date }} - {{ article.title }} [{{ article.category }}]</a></li>
+    {% endfor %}
+</ul>
+<!-- {% include "pagination.html" %} -->
+{% endblock %}
