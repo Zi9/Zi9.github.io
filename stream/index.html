@@ -3,16 +3,29 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=$URL">
-    <script type="text/javascript">
-        window.location.href = "http://10.147.19.2/live"
-    </script>
     <title>Zi9's Stream</title>
     <meta name="description" content="CoZi Stream ✨">
+    <script defer src="./reader.js"></script>
+    <style>
+        html {
+            scrollbar-gutter: stable;
+        }
+        body {
+            background-color: black;
+            padding: 0;
+            margin: 0;
+        }
+        #stream {
+            width: 100vw;
+            height: 99vh;
+            object-fit: contain;
+        }
+    </style>
 </head>
 
 <body>
-    If you are not redirected automatically, follow this <a href='http://10.147.19.2/live'>link</a>.
+    <video id="stream" controls autoplay></video>
+    <script type="module" src="./stream.js"></script>
 </body>
 
 </html>
