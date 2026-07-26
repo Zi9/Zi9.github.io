@@ -11,7 +11,7 @@ body {
   margin-right: auto;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1024px) {
   header {
     width: 90%;
     margin-left: auto;
@@ -108,10 +108,14 @@ b {
 }
 
 img {
-  width: stretch;
+  display: block;
+  max-width: 100%;
+  width: auto;
   height: auto;
+  margin: 0 auto;
   border: solid 2px #ccc;
   padding: 5px;
+  box-sizing: border-box;
 }
 
 pre {
@@ -124,4 +128,17 @@ p > code {
   background-color: #202020;
   padding-left: 3px;
   padding-right: 3px;
+}
+
+.image-row {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  width: 100%;
+}
+.image-row > img {
+  width: 0;
+  flex: 1;
+  min-width: 0;
+  height: auto;
 }

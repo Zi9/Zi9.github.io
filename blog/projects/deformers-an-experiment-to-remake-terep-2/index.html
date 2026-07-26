@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Deformers - An experiment to remake Terep 2 - Zi9's Blog</title>
+    <meta name="description" content="Zi9's Blog">
+    <link rel="stylesheet" type="text/css" href="/blog/theme/css/style.css" />
+    <link rel="icon" type="image/x-icon" href="/blog/theme/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+</head>
+
+<body>
+    <header>
+        <h1 class="branding">Zi9's Blog</h1>
+        <a href="/blog">🏠 Index</a>
+        <a href="/">🌐 zi9.dev</a>
+    </header>
+    <hr>
+    <main>
+<h1>Deformers - An experiment to remake Terep 2</h1>
+<i>Published 26/05/2026</i>
+<hr>
+<div class="page-content">
+    <h1>A bit of background</h1>
+<p>So this is a project I started in April of 2021. Terep 2 is a tech demo-ish racing game from between 1994 and 1997 created by Nagymathe Denes as a hobby project. My first introduction to this game was way back in primary school where we would play it on the school computers for fun (it had split-screen multiplayer). It was short and sweet fun.</p>
+<h1>The remake</h1>
+<p>For my remake I initially tried C#/.NET Core (that's why some of the screenshots reference csharp) but ultimately decided to use C because I like the idea of a remake not built using an off the shelf game engine because it's just less bloaty. I could remake it using Godot but that would be just wack to have a remake be almost 100MB while the original EXE is 37433 bytes. And after some testing I couldn't get the build size down with C# and I wanted to do manual memory management. So barebones C it is. But I need a way to draw graphics and I really don't want to learn how to raw-dog that currently so I went to what in my opinion is the best way to make games in C - <a href="https://github.com/raysan5/raylib">Raylib</a></p>
+<h2>The map data</h2>
+<p>Now, due to the license of the original game prohibiting any decompilation or reverse engineering of TEREP2.EXE, I started by just inspecting the data files that come with the game. Surprisingly the map is just constructed from 3 texture files in PCX format and were not the hardest to make sense of:</p>
+<ul>
+<li>Heightmap (MAP.PCX) -- Effectively just a black to white scale of values depicting the height of each point in a 2D grid</li>
+<li>Color map (COL.PCX) -- Contains values that map each tile into a 16x16 region in the texture map</li>
+<li>Texture map (MAPTEX.PCX) -- A simple texture atlas consisting of 16x16 tiles</li>
+</ul>
+<p>PCX is a fairly simple format to figure out. It's effectively just a palette based array of pixels with some metadata and I was able to easily make a decoder for these textures, build a mesh from it and display it in raylib.</p>
+<p><img alt="First texture" src="/blog/img/projects/deformers/first-texture.png"></p>
+<p>Next step was to map the colors from the map files onto a mesh. First iterations of that did not go the best...</p>
+<div class="image-row">
+<img src="/blog/img/projects/deformers/glitchy.png">
+<img src="/blog/img/projects/deformers/glitchy2.png">
+</div>
+
+<p>But after a bit of debugging and tweaking I managed to bring the map into raylib. I also added an affine shader to mimic the affine mapping that the original game uses.</p>
+<p><img alt="Loaded map" src="/blog/img/projects/deformers/first-map.png"></p>
+<p>This is where the project was moved from C# to C as well.</p>
+<h2>The car data</h2>
+<p>The car data is not in any standard format. This is a task for just well educated guesses and lots of staring at the data in the hex editor. By putting a simple highlight on the 0x00 bytes, a structure emerges:</p>
+<p><img alt="Car hex data" src="/blog/img/projects/deformers/cardata.png"></p>
+<p>After a bit of time I managed to extract some structure of the car model data:</p>
+<div class="image-row">
+<img src="/blog/img/projects/deformers/cardata_loaded.png">
+<img src="/blog/img/projects/deformers/cardata_connected.png">
+</div>
+
+<h2>The current final state</h2>
+<p>That's as far as the project has developed so far. I sort of lost motivation to work on this because I realized I'm gonna need to figure out how to do the deformable body physics... physics is hard...</p>
+<p>The project is open source on <a href="https://github.com/Zi9/Deformers">GitHub</a></p>
+<p><img alt="Deformers" src="/blog/img/projects/deformers/deformers.png"></p>
+</div>
+    </main>
+    <footer>
+        <hr>
+        <p>Last Updated: Jul 27, 2026, 00:40:28<br>Thanks for reading :)</p>
+        <hr>
+    </footer>
+</body>
+
+</html>
