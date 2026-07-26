@@ -7,6 +7,18 @@ body {
   font-family: monospace;
 }
 
+@media (max-width: 700px) {
+  body {
+    flex-direction: column;
+  }
+  header {
+    max-width: 100% !important;
+  }
+  main {
+    width: 93% !important;
+  }
+}
+
 header {
   max-width: 15%;
   /* background-color: #2A2A2A; */
@@ -87,7 +99,7 @@ pre {
   padding: 5px;
 }
 
-code {
+p > code {
   background-color: #202020;
   padding-left: 3px;
   padding-right: 3px;
