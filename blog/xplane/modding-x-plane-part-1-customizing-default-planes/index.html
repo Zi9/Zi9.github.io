@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Modding X-Plane - Part 1: Customizing default planes - Zi9's Blog</title>
+    <meta name="description" content="Zi9's Blog">
+    <link rel="stylesheet" type="text/css" href="/blog/theme/css/style.css" />
+    <link rel="icon" type="image/x-icon" href="/blog/theme/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+</head>
+
+<body>
+    <header>
+        <h1 class="branding">Zi9's Blog</h1>
+        <hr>
+        <a href="https://zi9.dev/blog">Index</a>
+        <a href="https://zi9.dev">Back to Homepage</a>
+    </header>
+    <main>
+<h1>Modding X-Plane - Part 1: Customizing default planes</h1>
+<i>Published 14/03/2026</i>
+<hr>
+<div class="page-content">
+    <p>End of 2025 I got pretty interested in aviation and ended up purchasing X-Plane 12 after having messed around with the demo at least 10h. I never liked the streaming situation of MSFS and was very interested in the local-first nature of X-Plane.</p>
+<p>Amongst other features of X-Plane like high end flight dynamics simulation, the open-ness of X-Planes data was very intruiging. Of course the first thing I did was check out the data files and to my surprise the sim comes with a plane maker software and all of the data files are just plain textures or text files. A real open platform to customize and mod, I like a lot.</p>
+<h2>Modding the default planes</h2>
+<p>I've really started to enjoy flying the default A330-300 around for fun. It's a bit of an unit to wrangle and I'd probably prefer the A320 if I had it (might get the ToLiss A320 at some point) but for now it's been alright. Recently I've started to do more recon style flights instead of regular passenger point-to-point flights. Although it was a bit odd to see a Lufthansa A330 doing recon circles around randomly.</p>
+<p>But first, something smaller. Figuring out how to make custom liveries..</p>
+<h3>A "Zi9 spec" Cessna C172, or a Z172 if you will</h3>
+<p>Turns out making liveries in X-Plane is amazingly simple. There's a "liveries" folder in each aircraft folder that effectively functions as just a texture override folder. You can just make a new folder which will become the name of your livery ingame, copy the textures you want to modify into it and edit them with your preferred flavor of MS Paint... or just use GIMP like I did.</p>
+<p>As usual I like dark themed things. So dark mode textures for the C172. I used the "full_white" livery as a base, tweaked the body colors to be a bit more dark and slapped "Zi9" on the tail. That's how simple it was to make something custom for X-Plane</p>
+<p><img alt="Cessna Z172" src="/blog/img/xplane/z172.png"></p>
+<p>I did also end up testing out the Plane Maker software that comes with X-Plane, but that went way over my head at that time. I did make this cursed thing though</p>
+<p><img alt="Cessna Z172 Military Edition" src="/blog/img/xplane/z172_2.png"></p>
+<h3>Back to the A330</h3>
+<p>Applying what I learned from the C172 I made a new livery for the A330, however because there's no plain white livery for that plane it was a bit more difficult. At first I started to try and manually fix the textures by combining a few of them and brushing out the livery but that was not very successful. But I managed to find a plain white livery on the X-Plane forum and was able to use that. First tests were not the most successful as there's dirt, grime and baked in shading on the textures which turned lighter due to the technique in GIMP I was using to darken the textures.</p>
+<p><img alt="Dark Livery A330" src="/blog/img/xplane/a330_dark.png"></p>
+<p>After a bit of fiddling around I managed to make a fairly decent dark livery for the A330. Once that was done I had an idea to try and make an aircraft that would fit more into the recon missions but I also wanted to figure out how to create custom models for the sim too. So the next step is to try and turn the A330 into a custom AWACS.</p>
+<h3>The Airbus AWACS... Cursed I know</h3>
+<p>The main feature of the AWACS is of course the big radar dish aka. the oreo cookie.</p>
+<p>After doing a bit of research on how models work in X-Plane, I found out that they're in an OBJ8 format which is apparently specific to X-Plane. But upon more searching I discovered that there's a Blender plugin for full support of exporting this file format: <a href="https://github.com/X-Plane/XPlane2Blender">XPlane2Blender</a> (It likes older versions of Blender)</p>
+<p>I do have some Blender knowledge so modeling the dish was not too difficult and in like an hour I had a model of the entire radar structure. Modelled of course in 2 separate parts as I had plans to try and figure out how to make it spin. The plugin allows you to set datarefs for transformations and stuff so that wasn't the worst to figure out. Initial tests were just hooking up the rotation to <code>sim/time/total_running_time_sec</code> and that actually worked very easily for making it spin.</p>
+<p><img alt="AWACS Dish" src="/blog/img/xplane/awacs_dish.png"></p>
+<p>In Plane Maker I just added the object onto the A330 and it just worked™. Also within that time a new proper livery was put together. And the maiden flight of the ZML Air Force E330 Sentinel was underway.</p>
+<p><img alt="AWACS Final" src="/blog/img/xplane/awacs_final.png"></p>
+<p>First test flight was a great success, although it was a bit weird to have it spinning on the ground too so that was the next step to figure out. This means it's time to get into some code stuff. Most of the default X-Plane addons ship with XLua and use that apparently. I needed to make the model use a custom dataref for rotation and using my script I can set that dataref to any value.</p>
+<p>I needed a button to toggle the spinning of the dish. But I didn't want to figure out how to make a custom button in the cockpit to toggle it. I just wanted a quick solution cause it's a minor detail. So I figured I'd just use the terrain display button since seeing terrain on the screen and the radar being active somewhat makes sense. Easy.</p>
+<p>After a bit of testing and messing around I got this:</p>
+<div class="highlight"><pre><span></span><code>sim_time = find_dataref(&quot;sim/time/total_running_time_sec&quot;)
+terrain_on = find_dataref(&quot;sim/cockpit2/EFIS/EFIS_terrain_on&quot;)
+radar_rotation = create_dataref(&quot;zi9/E330/radar_rotation&quot;, &quot;number&quot;)
+
+local rotation = 0
+local last_time = sim_time
+local rotation_speed = 30
+
+function after_physics()
+
+    local delta = sim_time - last_time
+    last_time = sim_time
+
+    if terrain_on == 1 then
+        rotation = rotation + delta * rotation_speed
+
+        if rotation &gt; 360 then
+            _rotation = radar_rotation - 360
+        end
+        radar_rotation = rotation
+    end
+end
+</code></pre></div>
+
+<p>And it all works. Pressing the button shows the terrain on the MFD and the dish spins!</p>
+<p>I figured I'd do a tiny bit of tweaking of the cockpit textures to pull it all together.</p>
+<p><img alt="AWACS Button" src="/blog/img/xplane/awacs_button.png"></p>
+<p>After that was done I wanted to add a little bit more to the outside of the aircraft so I modelled the side pods and added those as well. The interior seats were removed but I didn't model any of the radar equipment yet. Maybe in the future.</p>
+<h3>For now the E330 Sentinel is ready for recon missions!</h3>
+<p><img alt="AWACS Final" src="/blog/img/xplane/awacs_final2.png"></p>
+<p>Future ideas are fixing the windows cause there shouldn't be windows on an aircraft like this, maybe trying to make interior more proper and adding some computers and other systems in there. Also maybe at some point adding an actual radar simulation system for actually doing surveillance and reconnaissance.</p>
+<h3>Closing thoughts</h3>
+<p>The open-ness of X-Plane modding is very cool. Although I haven't grasped the functionality of Plane Maker fully yet but it seems like all of the tools are there for making all kinds of custom aircraft and such.</p>
+<p>X-Plane also has a C API which is very intruiging. I will be testing that out as well at some point.</p>
+</div>
+    </main>
+</body>
+
+</html>
