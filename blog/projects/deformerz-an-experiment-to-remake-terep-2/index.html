@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Deformers - An experiment to remake Terep 2 - Zi9's Blog</title>
+    <title>Deformerz - An experiment to remake Terep 2 - Zi9's Blog</title>
     <meta name="description" content="Zi9's Blog">
     <link rel="stylesheet" type="text/css" href="/blog/theme/css/style.css" />
     <link rel="icon" type="image/x-icon" href="/blog/theme/favicon.ico">
@@ -21,7 +21,7 @@
     </header>
     <hr>
     <main>
-<h1>Deformers - An experiment to remake Terep 2</h1>
+<h1>Deformerz - An experiment to remake Terep 2</h1>
 <i>Published 26/05/2026</i>
 <hr>
 <div class="page-content">
@@ -37,34 +37,34 @@
 <li>Texture map (MAPTEX.PCX) -- A simple texture atlas consisting of 16x16 tiles</li>
 </ul>
 <p>PCX is a fairly simple format to figure out. It's effectively just a palette based array of pixels with some metadata and I was able to easily make a decoder for these textures, build a mesh from it and display it in raylib.</p>
-<p><img alt="First texture" src="/blog/img/projects/deformers/first-texture.png"></p>
+<p><img alt="First texture" src="/blog/img/projects/deformerz/first-texture.png"></p>
 <p>Next step was to map the colors from the map files onto a mesh. First iterations of that did not go the best...</p>
 <div class="image-row">
-<img src="/blog/img/projects/deformers/glitchy.png">
-<img src="/blog/img/projects/deformers/glitchy2.png">
+<img src="/blog/img/projects/deformerz/glitchy.png">
+<img src="/blog/img/projects/deformerz/glitchy2.png">
 </div>
 
 <p>But after a bit of debugging and tweaking I managed to bring the map into raylib. I also added an affine shader to mimic the affine mapping that the original game uses.</p>
-<p><img alt="Loaded map" src="/blog/img/projects/deformers/first-map.png"></p>
+<p><img alt="Loaded map" src="/blog/img/projects/deformerz/first-map.png"></p>
 <p>This is where the project was moved from C# to C as well.</p>
 <h2>The car data</h2>
 <p>The car data is not in any standard format. This is a task for just well educated guesses and lots of staring at the data in the hex editor. By putting a simple highlight on the 0x00 bytes, a structure emerges:</p>
-<p><img alt="Car hex data" src="/blog/img/projects/deformers/cardata.png"></p>
+<p><img alt="Car hex data" src="/blog/img/projects/deformerz/cardata.png"></p>
 <p>After a bit of time I managed to extract some structure of the car model data:</p>
 <div class="image-row">
-<img src="/blog/img/projects/deformers/cardata_loaded.png">
-<img src="/blog/img/projects/deformers/cardata_connected.png">
+<img src="/blog/img/projects/deformerz/cardata_loaded.png">
+<img src="/blog/img/projects/deformerz/cardata_connected.png">
 </div>
 
 <h2>The current final state</h2>
 <p>That's as far as the project has developed so far. I sort of lost motivation to work on this because I realized I'm gonna need to figure out how to do the deformable body physics... physics is hard...</p>
-<p>The project is open source on <a href="https://github.com/Zi9/Deformers">GitHub</a></p>
-<p><img alt="Deformers" src="/blog/img/projects/deformers/deformers.png"></p>
+<p>The project is open source on <a href="https://github.com/Zi9/Deformerz">GitHub</a></p>
+<p><img alt="Deformerz" src="/blog/img/projects/deformerz/deformerz.png"></p>
 </div>
     </main>
     <footer>
         <hr>
-        <p>Last Updated: Jul 27, 2026, 00:40:28<br>Thanks for reading :)</p>
+        <p>Last Updated: Aug 22, 2026, 22:27:23<br>Thanks for reading :)</p>
         <hr>
     </footer>
 </body>
