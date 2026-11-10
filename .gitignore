@@ -1,3 +1,4 @@
 hidden_*
 __pycache__
 blog-src/
+blog/
